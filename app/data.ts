@@ -71,7 +71,7 @@ export const projects = [
     id: "5",
     title: "IBHS Portfolio",
     repo: "https://github.com/ibrahimhassona/ibhs",
-    live: "https://ibhs-lac-psi.vercel.app/",
+    live: "https://ibhs.vercel.app/",
     img: "/ibhs.PNG",
     create_at: "2024-02-02",
     tech: [next, ts, tailwind, react, api],
