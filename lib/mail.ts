@@ -47,12 +47,8 @@ export const sendEmail = async ({
         subject: subject,
         html: `<h2>Comming from IBHS ${name}</h2><p>${message}</p><p>Sender mail: ${email}</p>`,
       });
-
-      // Log the result if needed, or handle it in another way
-      console.log('Email sent:', sendResult);
     }
   } catch (error) {
-    console.error('Error sending email:', error);
     throw error; // Rethrow the error to handle it further if needed
   }
 };

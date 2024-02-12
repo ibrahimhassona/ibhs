@@ -89,7 +89,6 @@ const ProjectsSection = () => {
           ))}
       </div>
     </section>
-    // <></>
   );
 };
 
