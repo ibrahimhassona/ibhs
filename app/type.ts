@@ -49,3 +49,11 @@ export interface socialDataProps {
     target?: string;
     offset?:number;
   }
+  // for meta data to each project 
+  export type Props = {
+    params: { project: string };
+  };
+  // for the params to each project
+  export interface Params {
+    project: number;
+  }

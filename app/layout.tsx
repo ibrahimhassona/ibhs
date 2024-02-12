@@ -18,7 +18,12 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "IBHS",
   description:
-    "Ibrahim Hassouna , Front End Developer , Web Developer , Nextjs Developer",
+    "Ibrahim Hassouna , Front End Developer , Web Developer , Nextjs Developer " + ['مبرمج مصرى','ابراهيم حسونه','مبرمج ويب',' تفاصيل مواقع الكترونيه بسعر جيد '].join(" , "),
+  icons:{
+    icon:['/favicon.ico?v=4'],
+    apple:['/apple-touch-icon.png?v=4'],
+    shortcut:['/apple-touch-icon.png?v=4']
+  }
 };
 
 export default function RootLayout({

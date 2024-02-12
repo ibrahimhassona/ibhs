@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import { technologies } from "../data";
-
 // react icons
 import { SiNextdotjs } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
@@ -14,30 +12,16 @@ import { FaBootstrap } from "react-icons/fa";
 import { SiStrapi } from "react-icons/si";
 import { SiRedux } from "react-icons/si";
 import { CiServer } from "react-icons/ci";
-import { skillsProp } from "../type";
 import CustomBtn from "../componentes/CustomBtn";
 import { motion } from "framer-motion";
 import { FadeIn } from "../variants";
-// Skills Data
-const skills: skillsProp = {
-  soft: {
-    proplem_solving:
-      "Troubleshoot and enhance frontend functionality to deliver an intuitive and visually appealing user interface.",
-    critical_thinking:
-      "Utilizing analytical and logical reasoning to evaluate, solve problems, and make informed decisions in various situations.",
-    adaptability:
-      "The ability to quickly adjust to new technologies and methodologies, ensuring seamless integration into evolving front-end development practices.",
-    collaboration:
-      " Effective teamwork and communication skills to foster a cohesive and productive environment, contributing to successful project outcomes in front-end development.",
-    attention_to_detai:
-      "Meticulous focus on precision in coding and design elements to deliver polished and error-free user interfaces in front-end development.",
-    communication:
-      "Clear and concise conveyance of technical concepts and ideas, facilitating effective collaboration and mutual understanding among cross-functional teams in front-end development.",
-  },
-  techSkils: technologies,
-};
+import { RiSupabaseFill } from "react-icons/ri";
 
-const skillsIcons = [
+import supabase from "@/lib/supabase";
+import { useEffect, useState } from "react";
+import Loading from "./Loading";
+
+let skillsIcons = [
   <SiNextdotjs />,
   <FaReact />,
   <SiTailwindcss />,
@@ -49,8 +33,48 @@ const skillsIcons = [
   <SiStrapi />,
   <SiRedux />,
   <CiServer />,
+  <RiSupabaseFill />,
 ];
+
 const Skills = () => {
+  interface typeSkills {
+    adaptability: string;
+    attention_to_detail: string;
+    collaboration: string;
+    communication: string;
+    critical_thinking: string;
+    proplem_solving: string;
+  }
+  interface skillsProps {
+    id: number;
+    tite: string;
+    type_skills: typeSkills;
+  }
+  [];
+
+  // Skills Data comming from DB
+  const [skills, setSkills] = useState<any>();
+
+  const fetchSkills = async () => {
+    let { data, error } = await supabase.from("ibhs-skills").select("*");
+    try {
+      if (error) {
+        throw error;
+      }
+      setSkills(data);
+    } catch (error) {
+      console.error("Error fetching projects:");
+    }
+  };
+
+  useEffect(() => {
+    fetchSkills();
+  }, []);
+
+  //if data ready or not
+  if (!skills) {
+    return <Loading />;
+  }
   return (
     <div className="container overflow-hidden font-roboto py-20">
       <div>
@@ -86,7 +110,9 @@ const Skills = () => {
             variants={FadeIn("left", 0.2)}
             initial="hidden"
             whileInView={"show"}
-            viewport={{ once: false, amount: 0.4 }} className="relative w-full">
+            viewport={{ once: false, amount: 0.4 }}
+            className="relative w-full"
+          >
             <div className=" w-[80%] mx-auto items-center flex flex-col pt-5 bg-[#00000082] rounded">
               <Image
                 src="/ibrahim-2.png"
@@ -105,19 +131,21 @@ const Skills = () => {
             Soft Skills
           </h1>
           <div className="grid grid-cols-3 justify-center items-center gap-4 max-sm:flex flex-col max-sm:px-[50px] my-10">
-            {Object.entries(skills.soft).map(([key, desc],index) => (
+            {Object.entries(skills[0].type_skills).map(([key, desc], index) => (
               <motion.div
-              variants={FadeIn("", index/10)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.4 }}
+                variants={FadeIn("", index / 10)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.4 }}
                 key={key}
                 className="flex hover:shadow-md links cursor-text flex-col items-center text-center px-[5px] py-[10px] rounded h-full gap-1 justify-center border border-black"
               >
                 <h2 className="capitalize font-semibold ">
                   {key.replaceAll("_", " ")}
                 </h2>
-                <p className="text-[14px] leading-4 text-sky ">{desc}</p>
+                <p className="text-[14px] leading-4 text-sky ">
+                  {desc as string}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -125,31 +153,32 @@ const Skills = () => {
         {/* Technical skills */}
         <div className="pt-10">
           <h1 className="font-semibold text-xl text-center uppercase">
-            Technica Skills
+            Technical Skills
           </h1>
           <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 max-sm:grid-cols-2 gap-2 px-10 lg:px-50 my-10">
-            {Object.entries(skills.techSkils).map(([key, desc], index) => (
+            {Object.entries(skills[1].type_skills).map(([key, desc], index) => (
               <motion.div
-              variants={FadeIn("", index/10)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.4 }}
+                variants={FadeIn("", index / 10)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.4 }}
                 key={key}
                 className="bg-sky rounded-sm mytransition py-3 cursor-pointer hover:bg-black  text-white flex flex-col justify-center items-center gap-2"
               >
                 <h1 className="text-2xl">{skillsIcons[index]}</h1>
-                <h2 className="text-md uppercase ">{desc}</h2>
+                <h2 className="text-md uppercase ">{desc as string}</h2>
               </motion.div>
             ))}
           </div>
         </div>
         {/* Explore my projects */}
-        <motion.div 
-         variants={FadeIn("up", 0.2)}
-         initial="hidden"
-         whileInView={"show"}
-         viewport={{ once: false, amount: 0.4 }}
-        className="flex justify-center items-center my-5">
+        <motion.div
+          variants={FadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.4 }}
+          className="flex justify-center items-center my-5"
+        >
           <CustomBtn
             style="border border-black px-3 py-2 rounded-sm capitalize hover:bg-black/70 hover:text-white "
             content="Expolore my projects"
