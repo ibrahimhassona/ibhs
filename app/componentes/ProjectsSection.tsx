@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { FadeIn } from "../variants";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
-import { fetchProjects } from "@/lib/fetchProjects";
+import  fetchProjects  from "@/lib/fetchProjects";
 
 const ProjectsSection = () => {
   const [projects, setProjects] = useState<any>([]);
