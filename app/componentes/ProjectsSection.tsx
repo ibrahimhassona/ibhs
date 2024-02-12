@@ -6,7 +6,7 @@ import CustomBtn from "./CustomBtn";
 import { motion } from "framer-motion";
 import { FadeIn } from "../variants";
 import { useEffect, useState } from "react";
-import Loading from "../skills/Loading";
+import Loading from "./Loading";
 import { fetchProjects } from "@/lib/fetchProjects";
 
 const ProjectsSection = () => {

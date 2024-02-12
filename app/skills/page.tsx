@@ -19,7 +19,7 @@ import { RiSupabaseFill } from "react-icons/ri";
 
 import supabase from "@/lib/supabase";
 import { useEffect, useState } from "react";
-import Loading from "./Loading";
+import Loading from "../componentes/Loading";
 
 let skillsIcons = [
   <SiNextdotjs />,
