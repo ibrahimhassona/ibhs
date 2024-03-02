@@ -22,17 +22,17 @@ import { useEffect, useState } from "react";
 import Loading from "../componentes/Loading";
 
 let skillsIcons = [
-  <SiNextdotjs />,
-  <FaReact />,
-  <SiTailwindcss />,
-  <SiTypescript />,
   <IoLogoJavascript />,
+  <SiTypescript />,
+  <CiServer />,
   <FaCss3Alt />,
   <FaHtml5 />,
-  <FaBootstrap />,
-  <SiStrapi />,
+  <SiNextdotjs />,
+  <FaReact />,
   <SiRedux />,
-  <CiServer />,
+  <SiStrapi />, 
+  <SiTailwindcss />,
+  <FaBootstrap />,
   <RiSupabaseFill />,
 ];
 
