@@ -6,7 +6,7 @@ import { FadeIn } from "../variants";
 const HomeSection = () => {
   return (
     <section
-      className="pt-5 h-[100vh] container grid grid-cols-2 gap-5 items-center justify-between max-sm:h-auto max-sm:my-16 max-sm:flex max-sm:flex-col-reverse"
+      className="pt-5 h-[100vh] container grid grid-cols-2 gap-5 items-center justify-between max-md:h-auto max-md:my-16 max-md:flex max-md:flex-col-reverse"
       id="about"
     >
       {/* content */}
@@ -15,7 +15,7 @@ const HomeSection = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }}
-        className=" flex flex-col  max-sm:mx-2 max-sm:items-center max-sm:mt-5"
+        className=" flex flex-col  max-md:mx-2 max-md:items-center max-md:mt-5"
       >
         <h1 className="font-bold text-4xl uppercase font-roboto  max-sm:text-2xl">
           <span className="text-sky">Ib</span>rahim{" "}
@@ -30,7 +30,7 @@ const HomeSection = () => {
           delighted that you've visited my site to explore my work.
           <li className="ml-5 mt-3">
             The website showcases my programming skills, which you can learn
-            more about on the "Show my Skills" page. Feel free to navigate to it
+            more about on the "Show Skills Page" page. Feel free to navigate to it
             at the bottom.
           </li>
           <li className="ml-5 mt-3">Explore my programming projects.</li>
@@ -41,12 +41,12 @@ const HomeSection = () => {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.4 }}
-          className="mt-5"
+          className="mt-5  "
         >
           <CustomBtn
             to="/skills"
-            style="bg-sky text-white px-2 py-1 rounded-sm hover:bg-black w-fit "
-            content="Show my Skills"
+            style="bg-sky text-white px-3 py-2 rounded-sm hover:bg-black w-fit animate-pulse "
+            content="Show Skills Page"
           />
         </motion.div>
       </motion.div>
@@ -63,8 +63,8 @@ const HomeSection = () => {
             src="/ibrahim.png"
             alt="Ibrahim Hassouna"
             width={200}
-            height={200}
-            className="relative z-10"
+            height={250}
+            className="relative z-10 w-[200px] h-[250px] "
           />
           <div className=" absolute cloud-2 h-full w-[90%] top-0 right-auto bg-cover bg-center text-xl opacity-100"></div>
         </div>

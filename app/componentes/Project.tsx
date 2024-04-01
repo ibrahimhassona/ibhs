@@ -4,19 +4,19 @@ import CustomBtn from "./CustomBtn";
 import Link from "next/link";
 import { IoReturnUpBackSharp } from "react-icons/io5";
 import Loading from "./Loading";
+import fetchProjects from "@/lib/fetchProjects";
 
 function Project(project: any) {
   const id = project.project;
   const [dataOfProject, setDataOfProject] = useState<any | []>([]);
   const fetchHandler = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}`);
-    const data = await response.json();
+    const data = await fetchProjects();
     return setDataOfProject(data);
   };
 
   useEffect(() => {
     fetchHandler();
-  }, []);
+  }, [dataOfProject]);
 
   const mapedData = dataOfProject
     .filter((item: { id: number }) => item.id == id)
@@ -41,7 +41,7 @@ function Project(project: any) {
       </h1>
       <div className="flex flex-col gap-7 max-sm:gap-4 max-md:px-[20px]">
         <img
-          src={`/${id}.png`}
+          src={finalData.img}
           alt={finalData.title}
           className="rounded-md border-2 border-gray-200 w-[600px] h-[400px]  max-md:m-auto max-md:w-[90%] max-md:h-auto"
         />
@@ -73,19 +73,23 @@ function Project(project: any) {
         </div>
       </div>
       {/* Links */}
-      <div className="flex gap-5 max-md:items-center justify-center items-center ">
+      <div className={`flex ${finalData.repo == "" ? 'flex-col' : 'flex-row' }    gap-5 max-md:items-center justify-center items-center `}>
+        {finalData.repo !== "" ? (
         <CustomBtn
           content="Project Repo"
           style="bg-sky hover:bg-black transition-all duration-300 text-white py-[5px] px-4 rounded-sm tracking-0 capitalize"
           to={finalData.repo as string}
           target="_blank"
         />
-        <CustomBtn
-          content={`${finalData.id !== "3" ? "Project Live" : "Backend Repo"}`}
-          style="bg-sky hover:bg-black transition-all duration-300 text-white py-[5px] px-4 rounded-sm tracking-0 capitalize"
-          to={finalData.live as string}
-          target="_blank"
-        />
+        ) : <span>There is no url to the project because it is for sale </span>}
+          <CustomBtn
+            content={`${
+              finalData.id !== "3" ? "Project Live" : "Backend Repo"
+            }`}
+            style="bg-sky hover:bg-black transition-all duration-300 text-white py-[5px] px-4 rounded-sm tracking-0 capitalize"
+            to={finalData.live as string}
+            target="_blank"
+          />
       </div>
     </div>
   ) : (

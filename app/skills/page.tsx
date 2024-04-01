@@ -16,6 +16,8 @@ import CustomBtn from "../componentes/CustomBtn";
 import { motion } from "framer-motion";
 import { FadeIn } from "../variants";
 import { RiSupabaseFill } from "react-icons/ri";
+import { SiJest } from "react-icons/si";
+
 
 import supabase from "@/lib/supabase";
 import { useEffect, useState } from "react";
@@ -34,6 +36,7 @@ let skillsIcons = [
   <SiTailwindcss />,
   <FaBootstrap />,
   <RiSupabaseFill />,
+  <SiJest />
 ];
 
 const Skills = () => {
@@ -105,7 +108,7 @@ const Skills = () => {
               English: written and spoken
             </p>
           </motion.div>
-          {/* photo */}
+          {/* Image */}
           <motion.div
             variants={FadeIn("left", 0.2)}
             initial="hidden"
@@ -115,11 +118,11 @@ const Skills = () => {
           >
             <div className=" w-[80%] mx-auto items-center flex flex-col pt-5 bg-[#00000082] rounded">
               <Image
-                src="/ibrahim-2.png"
+                src="/ibrahim.png"
                 alt="Ibrahim Hassouna"
                 width={200}
-                height={200}
-                className="relative z-10"
+                height={250}
+                className="relative z-10 w-[200px] h-[250px]"
               />
               <div className=" absolute cloud h-full w-[90%] top-0 right-auto bg-cover bg-center text-xl opacity-100"></div>
             </div>

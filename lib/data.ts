@@ -11,6 +11,7 @@ export const technologies = {
   strapi: "Strapi",
   redux: "Redux Toolkit",
   api: "REST API",
+  jest:'Jest'
 };
 const {
   next,
@@ -24,4 +25,5 @@ const {
   strapi,
   redux,
   api,
+  jest
 } = technologies;

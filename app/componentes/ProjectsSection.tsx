@@ -46,7 +46,7 @@ const ProjectsSection = () => {
               <div className=" overflow-hidden cursor-pointer h-[207px]">
                 <img
                   className="h-full w-full opacity-80 duration-300 transition-all hover:opacity-100 hover:scale-105"
-                  src={`${index + 1}.png`}
+                  src={project.img}
                   alt={project.title}
                 />
               </div>
