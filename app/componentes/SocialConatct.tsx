@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
-import { socialDataProps } from "../type";
+import { socialDataProps } from "../[locale]/type";
 
 const icons = [<FaFacebookF />, <FaLinkedinIn />, <FaWhatsapp />];
 // Social Media Component

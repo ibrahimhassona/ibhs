@@ -12,7 +12,7 @@ import { FaBootstrap } from "react-icons/fa";
 import { SiStrapi } from "react-icons/si";
 import { SiRedux } from "react-icons/si";
 import { CiServer } from "react-icons/ci";
-import CustomBtn from "../componentes/CustomBtn";
+import CustomBtn from "../../componentes/CustomBtn";
 import { motion } from "framer-motion";
 import { FadeIn } from "../variants";
 import { RiSupabaseFill } from "react-icons/ri";
@@ -21,7 +21,7 @@ import { SiJest } from "react-icons/si";
 
 import supabase from "@/lib/supabase";
 import { useEffect, useState } from "react";
-import Loading from "../componentes/Loading";
+import Loading from "../../componentes/Loading";
 
 let skillsIcons = [
   <IoLogoJavascript />,

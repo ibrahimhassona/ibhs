@@ -2,7 +2,7 @@
 import Image from "next/image";
 import CustomBtn from "./CustomBtn";
 import { motion } from "framer-motion";
-import { FadeIn } from "../variants";
+import { FadeIn } from "../[locale]/variants";
 const HomeSection = () => {
   return (
     <section

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { styleProp } from "../type";
+import { styleProp } from "../[locale]/type";
 
 
 const CustomBtn = ({ style, to, content ,target,offset }: styleProp) => {

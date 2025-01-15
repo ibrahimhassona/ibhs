@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Project from "@/app/componentes/Project";
-import { Params, Props } from "@/app/type";
+import { Params, Props } from "@/app/[locale]/type";
 import fetchProjects from "@/lib/fetchProjects";
 
 

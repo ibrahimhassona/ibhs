@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "./componentes/Header";
-import Footer from "./componentes/Footer";
+import Header from "../componentes/Header";
+import Footer from "../componentes/Footer";
 import { Providers } from "./Chakra-Ui/provider";
 
 const roboto = Roboto({

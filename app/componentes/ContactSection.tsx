@@ -14,9 +14,9 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import SocialConatct from "./SocialConatct";
-import { stateType } from "../type";
+import { stateType } from "../[locale]/type";
 import { motion } from "framer-motion";
-import { FadeIn } from "../variants";
+import { FadeIn } from "../[locale]/variants";
 
 const initValues = { name: "", email: "", subject: "", message: "" };
 const initState = { values: initValues, isLoading: false };

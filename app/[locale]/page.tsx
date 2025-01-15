@@ -1,6 +1,8 @@
-import ContactSection from "./componentes/ContactSection";
-import HomeSection from "./componentes/HomeSection";
-import ProjectsSection from "./componentes/ProjectsSection";
+import ContactSection from "../componentes/ContactSection";
+import HomeSection from "../componentes/HomeSection";
+import ProjectsSection from "../componentes/ProjectsSection";
+
+ 
 
 export default async function Home() {
   return (
