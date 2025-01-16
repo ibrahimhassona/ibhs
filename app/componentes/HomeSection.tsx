@@ -58,7 +58,7 @@ const HomeSection = () => {
         viewport={{ once: false, amount: 0.4 }}
         className="relative w-full"
       >
-        <div className=" w-[80%] mx-auto items-center flex flex-col pt-5 bg-[#00000082] rounded">
+        {/* <div className=" w-[80%] mx-auto items-center flex flex-col pt-5 bg-[#00000082] rounded">
           <Image
             src="/ibrahim.png"
             alt="Ibrahim Hassouna"
@@ -67,7 +67,7 @@ const HomeSection = () => {
             className="relative z-10 w-[200px] h-[250px] "
           />
           <div className=" absolute cloud-2 h-full w-[90%] top-0 right-auto bg-cover bg-center text-xl opacity-100"></div>
-        </div>
+        </div> */}
       </motion.div>
     </section>
   );
