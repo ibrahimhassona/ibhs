@@ -27,6 +27,20 @@ const DarkModeProvider = ({ children }) => {
     }
   }, []);
 
+  // Apply dark mode to the body element
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const body = document.body;
+      if (isDarkMode) {
+        body.classList.remove("dark");
+        body.classList.add("light");
+      } else {
+        body.classList.add("dark");
+        body.classList.remove("light");
+      }
+    }
+  }, [isDarkMode]);
+
   return (
     <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
       {children}
@@ -35,4 +49,3 @@ const DarkModeProvider = ({ children }) => {
 };
 
 export default DarkModeProvider;
-

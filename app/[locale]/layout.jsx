@@ -6,7 +6,7 @@ import { Providers } from "./Chakra-Ui/provider";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import SideBar from "../componentes/SideBar";
-import DarkModeProvider from '@/lib/DarkModeContext'
+import DarkModeProvider, { useDarkMode } from '@/lib/DarkModeContext'
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -44,14 +44,14 @@ export default async function RootLayout({ children, params: { locale } }) {
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
         className={`${locale == "ar" ? cairo.className : poppins.variable
-          } grid grid-cols-3 max-w-[1500px] mx-auto  h-screen`}
+          } grid grid-cols-4 max-w-[1500px] mx-auto  h-screen gap-2 max-md:flex max-md:flex-col`}
       >
         <Providers>
             <DarkModeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {/* <Header /> */}
               <SideBar />
-              <div className=" col-span-2">{children}</div>
+              <div className=" col-span-3 h-screen overflow-y-auto px-2">{children}</div>
               {/* <Footer /> */}
           </NextIntlClientProvider>
             </DarkModeProvider>

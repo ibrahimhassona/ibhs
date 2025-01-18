@@ -6,125 +6,139 @@ import {
   FaUser,
   FaMapMarkerAlt,
   FaCode,
-  FaBook,
   FaFolder,
+  FaEnvelope,
+  FaPen,
 } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import { RiOrganizationChart } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
+import ModeSwitcher from "./2025/ModeSwitcher";
+import DeskTopLinks from "./2025/DeskTopLinks";
+import LanguageSwitcher from "./2025/LanguageSwitcher";
+import Image from "next/image";
 
 const SideBar = () => {
-  const skills = ["React", "Next.js", "JavaScript", "CSS", "HTML"];
-  const courses = ["Advanced React", "Frontend Masters", "CSS Mastery"];
-  const projects = [
-    { name: "Portfolio Website", link: "#" },
-    { name: "E-commerce Store", link: "#" },
-    { name: "Blog Platform", link: "#" },
+  const links = [
+    {
+      title: "الملف الشخصي",
+      href: "/",
+      icon: FaUser,
+      iconColor: "text-emerald-400",
+      main: true,
+    },
+    {
+      title: "المشاريع",
+      href: "/projects",
+      icon: FaFolder,
+      iconColor: "text-purple-400",
+      main: false,
+    },
+    {
+      title: "المهارات",
+      href: "/skills",
+      icon: FaCode,
+      iconColor: `text-sky-400`,
+      border: `border-sky-400`,
+      main: false,
+    },
+    {
+      title: "منشوراتى",
+      href: "/posts",
+      icon: FaPen,
+      iconColor: "text-yellow-400",
+      main: false,
+    },
+    {
+      title: "تواصل معى",
+      href: "/contact",
+      icon: FaEnvelope,
+      iconColor: "text-red-400",
+      main: false,
+    },
   ];
   // ------- theme -----
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  console.log(isDarkMode);
   return (
     <aside
-      className={`flex flex-col gap-6 w-full h-screen ${
+      className={`flex flex-col gap-6 w-full h-screen max-md:hidden drop-shadow-xl px-2   ${
         !isDarkMode ? "dark" : "light"
-      } p-6 `}
+      }  `}
     >
       {/* Profile Section */}
       <div className="flex flex-col items-start justify-start ">
-        <div className="w-24 h-24 mx-auto bg-slate-700 rounded-full flex items-center justify-center">
-          <FaUser size={40} className="text-slate-300" />
+        {/* ------- Cover And Image ------- */}
+        <div className=" w-full relative">
+          <Image
+            width={400}
+            height={400}
+            src={"/cover.jpg"}
+            alt="cover"
+            className="w-full h-[200px] object-fill rounded-b-2xl"
+          />
+          <div className="w-20 h-20 absolute -bottom-2 border-2 border-emerald-400 left-1/2 transform -translate-x-1/2 z-10 bg-slate-700 rounded-full flex items-center justify-center">
+            <FaUser size={40} className="text-slate-300" />
+          </div>
+          {/* --------- Mode Button --------- */}
+          <ModeSwitcher style={" absolute bottom-2 z-20 start-2"} />
+          {/* --------- Language Switcher -------- */}
+          <LanguageSwitcher style={" bottom-12 z-20 start-2"} />
+          {/* OverLay */}
+          <div className=" absolute h-full w-full top-0 right-0 bg-black/40 rounded-b-2xl" />
         </div>
-        {/* Data */}
-        <div className=" w-full my-4">
+        {/* --------- Personal Data --------- */}
+        <div className=" w-full my-4 ">
           <div className="flex flex-col items-start gap-2">
             {/* Name And Cv */}
             <div className="flex items-center justify-between w-full grid-cols-2 gap-2">
-              <h2 className="text-xl font-bold">ابراهيم حسونة</h2>
+              <h2 className="text-xl font-bold max-lg:text-sm">ابراهيم حسونة</h2>
               <Link
                 href="/path/to/your/cv.pdf" // ضع هنا رابط ملف الـ CV
                 download
                 className=" bg-emerald-500 rounded-md w-fit  flex items-center p-2 hover:bg-emerald-600 cust-trans"
               >
-                <FaDownload size={18} />
+                <FaDownload size={14} />
               </Link>
-              <ModeToggleButton />
             </div>
             <p className="text text-sm">مطور واجهات أمامية</p>
             {/* Grid items */}
-            <div className="grid grid-cols-2 gap-2 justify-between w-full">
+            <div className="grid grid-cols-1 gap-2 justify-between w-full">
               <Lable
-                style={"text-emerald-500"}
-                iconColor="text-emerald-500"
+                style={""}
+                iconColor=""
                 icon={FaMapMarkerAlt}
                 text={`مصر , القاهرة`}
                 type={"location"}
               />
               <Lable
-                style={"text-purple-500"}
-                iconColor="text-purple-500"
+                style={""}
+                iconColor=""
                 icon={RiOrganizationChart}
-                text={`مصر , القاهرة`}
+                text={`اعمل لدى مجموعة منزل التسويق`}
                 type={"company"}
               />
               <Lable
-                style={"text-emerald-500"}
-                iconColor="text-emerald-500"
+                style={""}
+                iconColor=""
                 icon={FaWhatsapp}
                 text={`01001705917`}
                 type={"whatsapp"}
               />
               <Lable
-                style={"text-purple-500"}
-                iconColor="text-purple-500"
+                style={""}
+                iconColor=""
                 icon={MdOutlineAlternateEmail}
                 text={`ibrahim.m.hassouna@gmail.com`}
                 type={"email"}
               />
             </div>
-            {/* ------ */}
           </div>
         </div>
       </div>
 
-      {/* Skills Section */}
-      <div className="space-y-4">
-        <div className="flex items-center space-x-2 rtl:space-x-reverse">
-          <FaCode size={18} className="text-sky-400" />
-          <h3 className="font-semibold text-lg">المهارات</h3>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 bg-slate-800 rounded-full text-sm text-sky-400"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Courses Section */}
-      <div className="space-y-4"></div>
-      {/* Projects Section */}
-
-      <div className="flex flex-col gap-4">
-        <Link
-          className="flex items-center gap-2 cust-trans hover:bg-white"
-          href={"/"}
-        >
-          <FaFolder size={18} className="text-purple-400" />
-          <h3 className="font-semibold text-lg">المشاريع</h3>
-        </Link>
-        <Link className="flex items-center gap-2" href={"/"}>
-          <FaBook size={18} className="text-emerald-400" />
-          <h3 className="font-semibold text-lg">الدورات</h3>
-        </Link>
-      </div>
-
-      {/* CV Section */}
+      {/* ------- Links --------- */}
+      <DeskTopLinks data={links} />
     </aside>
   );
 };
@@ -148,41 +162,16 @@ const Lable = ({ style, iconColor, icon: Icon, text, type }: any) => {
   };
 
   return (
-    <div className="flex items-center justify-start gap-1 text-sm">
+    <div className={`flex items-center justify-start gap-1 text-sm ${type=='email'?'max-lg:flex-wrap':''}`}>
       <Icon size={14} className={iconColor} />
-      <a
+      <Link
         href={getLink()}
-        className={`${style}`}
+        className={`${style} font-bold ${type=='email'?'max-lg:text-xs':''}`}
         target="_blank"
         rel="noopener noreferrer"
       >
         {text}
-      </a>
+      </Link>
     </div>
   );
 };
-
-const ModeToggleButton = () => {
-  const { isDarkMode, toggleDarkMode } = useDarkMode(); // Access dark mode state and toggle function
-
-  return (
-    <button
-      onClick={toggleDarkMode}
-      className={`p-2 rounded-full transition-colors duration-300 
-        ${isDarkMode ? "bg-gray-800 text-white" : "bg-yellow-500 text-black"}`}
-    >
-      {/* Icon or text depending on the mode */}
-      {isDarkMode ? (
-        <span role="img" aria-label="Dark Mode">
-          🌙
-        </span> // Dark Mode Icon
-      ) : (
-        <span role="img" aria-label="Light Mode">
-          🌞
-        </span> // Light Mode Icon
-      )}
-    </button>
-  );
-};
-
-ModeToggleButton;
