@@ -47,7 +47,7 @@ export default function Profile() {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gray-50"
+      className="min-h-screen "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -62,7 +62,7 @@ export default function Profile() {
         >
           <div className="h-64 w-full rounded-xl overflow-hidden">
             <Image
-              src="/api/placeholder/1200/300"
+              src="/cover.jpg"
               alt="Cover"
               width={1200}
               height={300}
@@ -70,14 +70,14 @@ export default function Profile() {
             />
           </div>
           <motion.div 
-            className="absolute -bottom-16 left-1/2 transform -translate-x-1/2"
+            className="absolute -bottom-0 start-2 transform -translate-x-1/2"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             <div className="relative w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-lg">
               <Image
-                src="/api/placeholder/128/128"
+                src="/me.jpg"
                 alt="Profile"
                 width={128}
                 height={128}
@@ -95,14 +95,14 @@ export default function Profile() {
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           <h1 className="text-3xl font-bold mb-2">إبراهيم حسونة</h1>
-          <p className="text-xl text-gray-600 mb-4">مطور واجهات أمامية</p>
+          <p className="text-xl  mb-4">مطور واجهات أمامية</p>
           
           {/* Contact Info */}
           <div className="flex flex-wrap justify-center gap-4 mb-6">
             {contactInfo.map((item, index) => (
               <motion.div 
                 key={index}
-                className="flex items-center gap-2 text-gray-600"
+                className="flex items-center gap-2 "
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
@@ -123,7 +123,7 @@ export default function Profile() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.7 + index * 0.1 }}
-                whileHover={{ scale: 1.2 }}
+                // whileHover={{ scale: 1.2 }}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -135,13 +135,13 @@ export default function Profile() {
 
         {/* About Me */}
         <motion.div 
-          className="bg-white rounded-xl p-6 shadow-sm mb-8"
+          className=" rounded-xl p-6 shadow-sm mb-8"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
           <h2 className="text-2xl font-bold mb-4">نبذة عني</h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className=" leading-relaxed">
             مطور واجهات أمامية متخصص في تطوير تطبيقات الويب الحديثة باستخدام React و Next.js.
             لدي خبرة في تصميم وتطوير واجهات المستخدم الجذابة وسهلة الاستخدام.
             أسعى دائماً لتقديم أفضل تجربة مستخدم ممكنة مع الحفاظ على أفضل ممارسات البرمجة.
@@ -156,24 +156,24 @@ export default function Profile() {
           transition={{ delay: 0.9, duration: 0.6 }}
         >
           <h2 className="text-2xl font-bold mb-6 text-center">مبادئ العمل</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {principles.map((principle, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className=" p-4 rounded-xl shadow-sm border border-emerald-500/20 cust-trans transition-shadow"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ 
                   delay: 1 + index * 0.1,
                   duration: 0.3
                 }}
-                whileHover={{ scale: 1.03 }}
+                // whileHover={{ scale: 1.03 }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 font-bold">
+                  <div className="  rounded-full flex items-center justify-center text-emerald-600 font-bold">
                     {index + 1}
                   </div>
-                  <p className="text-gray-700">{principle}</p>
+                  <p className="max-sm:text-sm">{principle}</p>
                 </div>
               </motion.div>
             ))}
