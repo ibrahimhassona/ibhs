@@ -45,14 +45,14 @@ export default async function RootLayout({ children, params: { locale } }) {
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body
         className={`${locale == "ar" ? cairo.className : poppins.variable
-          } grid grid-cols-4  mx-auto  h-screen gap-2 max-md:flex max-md:flex-col`}
+          } grid grid-cols-4  mx-auto  h-screen gap-2 max-md:flex max-md:flex-col max-md:overflow-hidden`}
       >
         <Providers>
             <DarkModeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {/* <Header /> */}
               <SideBar />
-              <div className=" col-span-3 h-screen overflow-y-auto px-2 shadow-xl">{children}</div>
+              <div className=" col-span-3 h-screen overflow-y-auto px-2 shadow-xl max-md:pb-14 ">{children}</div>
               <MobileNavBar />
               {/* <Footer /> */}
           </NextIntlClientProvider>

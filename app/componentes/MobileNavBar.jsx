@@ -1,3 +1,5 @@
+"use client";
+import { useDarkMode } from "@/lib/DarkModeContext";
 import { Home, FolderKanban, Code, FileText, Mail } from "lucide-react";
 import Link from "next/link";
 import { CiMenuKebab } from "react-icons/ci";
@@ -9,12 +11,19 @@ const MobileNavBar = () => {
     { icon: <Code size={20} />, url: "/skills", label: "Skills" },
     { icon: <FileText size={20} />, url: "/posts", label: "Posts" },
     { icon: <Mail size={20} />, url: "/contact", label: "Contact" },
-    { icon: <CiMenuKebab size={20} />, url: "/contact", label: "Menu" }
   ];
-
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <nav className="fixed bottom-0 left-0 right-0  hidden max-md:block">
-      <div className="flex justify-around items-center h-16">
+    <nav
+      className={`fixed bottom-0 left-0 right-0  hidden max-md:block  ${
+        !isDarkMode ? "dark" : "light"
+      }`}
+    >
+      <div
+        className={`${
+          !isDarkMode ? "shadow-slate-700" : " shadow-gray-300"
+        }  shadow flex justify-around items-center h-16`}
+      >
         {navItems.map((item) => (
           <Link
             key={item.url}
@@ -25,6 +34,10 @@ const MobileNavBar = () => {
             <span className="text-xs mt-1">{item.label}</span>
           </Link>
         ))}
+        <button className="flex flex-col items-center justify-center">
+          <CiMenuKebab size={20} />
+          <span className="text-xs mt-1">Options</span>
+        </button>
       </div>
     </nav>
   );

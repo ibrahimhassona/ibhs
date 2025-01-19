@@ -17,8 +17,10 @@
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaTelegram, FaLinkedin, FaGithub, FaMapMarkerAlt, FaBriefcase, FaEnvelope, FaPhone } from "react-icons/fa";
 import Image from "next/image";
+import { useDarkMode } from "@/lib/DarkModeContext";
 
 export default function Profile() {
+  const {isDarkMode}=useDarkMode()
   const principles = [
     "دراسة المشروع",
     "دراسة التصميم",
@@ -40,6 +42,7 @@ export default function Profile() {
 
   const contactInfo = [
     { icon: FaMapMarkerAlt, text: "مصر، القاهرة" },
+    { icon: FaMapMarkerAlt, text: "مصر، كفرالشيخ" },
     { icon: FaBriefcase, text: "مجموعة منزل التسويق" },
     { icon: FaEnvelope, text: "ibrahim.m.hassouna@gmail.com" },
     { icon: FaPhone, text: "01001705917" }
@@ -52,15 +55,15 @@ export default function Profile() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto p-6">
-        {/* Cover & Profile Section */}
+      <div className=" mx-auto py-2">
+        {/*------------- Cover & Profile Section -------------*/}
         <motion.div 
-          className="relative mb-20"
+          className="relative mb-10"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="h-64 w-full rounded-xl overflow-hidden">
+          <div className="h-64 w-full rounded-md overflow-hidden">
             <Image
               src="/cover.jpg"
               alt="Cover"
@@ -75,7 +78,7 @@ export default function Profile() {
             animate={{ scale: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <div className="relative w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-lg">
+            <div className={`relative w-32 h-32 max-md:w-24 max-md:h-24 rounded-full border-4  overflow-hidden  shadow-lg ${!isDarkMode ? "border-slate-800" : " border-gray-200"}`}>
               <Image
                 src="/me.jpg"
                 alt="Profile"
@@ -87,18 +90,18 @@ export default function Profile() {
           </motion.div>
         </motion.div>
 
-        {/* Personal Info */}
+        {/* ------ Personal Info ------ */}
         <motion.div 
           className="text-center mb-8"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <h1 className="text-3xl font-bold mb-2">إبراهيم حسونة</h1>
-          <p className="text-xl  mb-4">مطور واجهات أمامية</p>
+          <h1 className="text-3xl max-md:text-xl font-bold mb-2">إبراهيم حسونة</h1>
+          <p className="text-xl max-md:text-sm  mb-4">{`مطور مواقع الكترونية (Front End)`}</p>
           
-          {/* Contact Info */}
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
+          {/* ------ Contact Info ------ */}
+          <div className="flex flex-wrap max-md:flex-col max-md:items-center justify-center gap-4 mb-6">
             {contactInfo.map((item, index) => (
               <motion.div 
                 key={index}
@@ -133,7 +136,7 @@ export default function Profile() {
           </div>
         </motion.div>
 
-        {/* About Me */}
+        {/* ---------- About Me----------  */}
         <motion.div 
           className=" rounded-xl p-6 shadow-sm mb-8"
           initial={{ y: 20, opacity: 0 }}
@@ -148,7 +151,7 @@ export default function Profile() {
           </p>
         </motion.div>
 
-        {/* Principles */}
+        {/* --------- Principles---------  */}
         <motion.div 
           className="mb-8"
           initial={{ opacity: 0 }}
@@ -160,7 +163,7 @@ export default function Profile() {
             {principles.map((principle, index) => (
               <motion.div
                 key={index}
-                className=" p-4 rounded-xl shadow-sm border border-emerald-500/20 cust-trans transition-shadow"
+                className=" p-4 rounded-sm shadow-sm border border-emerald-500/20 cust-trans transition-shadow"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ 
