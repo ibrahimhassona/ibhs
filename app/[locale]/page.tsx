@@ -101,7 +101,7 @@ export default function Profile() {
           <p className="text-xl max-md:text-sm  mb-4">{`مطور مواقع الكترونية (Front End)`}</p>
           
           {/* ------ Contact Info ------ */}
-          <div className="flex flex-wrap max-md:flex-col max-md:items-center justify-center gap-4 mb-6">
+          <div className="flex flex-wrap max-md:flex-col max-md:items-center justify-center gap-4 mb-6 max-sm:w-fit max-sm:items-start  m-auto">
             {contactInfo.map((item, index) => (
               <motion.div 
                 key={index}
@@ -143,8 +143,8 @@ export default function Profile() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <h2 className="text-2xl font-bold mb-4">نبذة عني</h2>
-          <p className=" leading-relaxed">
+          <h2 className="text-2xl max-sm:text-lg font-bold mb-4 max-sm:text-center">نبذة عني</h2>
+          <p className=" leading-relaxed max-sm:text-center">
             مطور واجهات أمامية متخصص في تطوير تطبيقات الويب الحديثة باستخدام React و Next.js.
             لدي خبرة في تصميم وتطوير واجهات المستخدم الجذابة وسهلة الاستخدام.
             أسعى دائماً لتقديم أفضل تجربة مستخدم ممكنة مع الحفاظ على أفضل ممارسات البرمجة.
@@ -158,12 +158,12 @@ export default function Profile() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.6 }}
         >
-          <h2 className="text-2xl font-bold mb-6 text-center">مبادئ العمل</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 className="text-2xl font-bold mb-6 text-center max-sm:text-lg">مبادئ العمل</h2>
+          <div className="grid  max-sm:grid-cols-2 grid-cols-2 lg:grid-cols-3 gap-4">
             {principles.map((principle, index) => (
               <motion.div
                 key={index}
-                className=" p-4 rounded-sm shadow-sm border border-emerald-500/20 cust-trans transition-shadow"
+                className={` p-2 rounded-sm shadow-sm  cust-trans transition-shadow ${!isDarkMode?'shadow-sky-900':'shadow-gray-200'}`}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ 
