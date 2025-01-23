@@ -3,7 +3,6 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
-import Tooltip from "@/app/componentes/2025/ui/Tooltip"
 import { useDarkMode } from "@/lib/DarkModeContext";
 const LanguageSwitcher = ({style}) => {
   const router = useRouter();
@@ -29,10 +28,9 @@ const LanguageSwitcher = ({style}) => {
 
       <div onClick={toggleLanguage} className={`
        ${isDarkMode ? modeStyles.dark : modeStyles.light} 
-        cust-trans absolute group cursor-pointer  w-8 h-8 rounded-full flex items-center justify-center  ${style}`}>
+        cust-trans group cursor-pointer  rounded-full flex items-center justify-center  ${style}`}>
        <span className={` ${isDarkMode ? modeStyles.dark : modeStyles.light}  `}>
        {locale == "en" ? "ع" : "En"}
-       <Tooltip content={'التبديل الى '}  style={`start-[calc(100%+5px)]`} />
        </span>
       </div>
 

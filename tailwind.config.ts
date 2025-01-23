@@ -10,10 +10,8 @@ const config: Config = {
     container:{
       center:true,
       padding:"15px 5px",
-    },
-    // colors:{
-      
-    // },
+    }
+    ,
     screens:{
       sm: "640px",
       md: "780px",
@@ -24,9 +22,16 @@ const config: Config = {
      fontFamily:{
       poppins : ["var(--poppins)","sans-serf"],
       roboto : ["var(--roboto)","sans-serf"],
-     }
+     },
+     colors: {
+      primary: "rgb(16 185 129)",  // emerald-500
+      "light_primary": "rgb(167 243 208)", // emerald-200
+    }
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwindcss-animated")
+  ],
 };
 export default config;

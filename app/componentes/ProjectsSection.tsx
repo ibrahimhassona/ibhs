@@ -6,12 +6,12 @@ import CustomBtn from "./CustomBtn";
 import { motion } from "framer-motion";
 import { FadeIn } from "../[locale]/variants";
 import { useEffect, useState } from "react";
-import Loading from "./Loading";
 import fetchProjects from "@/lib/fetchProjects";
-
+import { useDarkMode } from "@/lib/DarkModeContext";
+import Loading from "./Loading";
 const ProjectsSection = () => {
   const [projects, setProjects] = useState<any[]>([]);
-
+  const { isDarkMode } = useDarkMode();
   useEffect(() => {
     const extractTheData = async () => {
       const data = await fetchProjects();
@@ -22,11 +22,10 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section className="container" id="projects">
+    <section className={`container ${isDarkMode?'light':'dark'}`} id="projects">
       <h1 className="text-2xl font-bold uppercase font-roboto max-sm:text-xl max-md:text-center">
         My Projects
       </h1>
-
       {/* projects Map */}
       {projects.length > 0 ? (
         <div className="grid gap-5 mt-16 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 max-sm:flex max-sm:flex-col max-md:px-[35px]">

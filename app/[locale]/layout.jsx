@@ -52,7 +52,7 @@ export default async function RootLayout({ children, params: { locale } }) {
           <NextIntlClientProvider locale={locale} messages={messages}>
             {/* <Header /> */}
               <SideBar />
-              <div className=" col-span-3 h-screen overflow-y-auto px-2 shadow-xl max-md:pb-14 ">{children}</div>
+              <div className=" col-span-3 h-screen overflow-y-auto px-2 shadow-xl max-md:pb-16 ">{children}</div>
               <MobileNavBar />
               {/* <Footer /> */}
           </NextIntlClientProvider>

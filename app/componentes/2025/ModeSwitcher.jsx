@@ -19,7 +19,7 @@ const ModeSwitcher = ({ style }) => {
     <button
       onClick={toggleDarkMode}
       aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      className={`w-8 h-8 rounded-full flex items-center justify-center cust-trans 
+      className={` rounded-full flex items-center justify-center cust-trans 
           ${isDarkMode ? modeStyles.dark : modeStyles.light} 
           ${style}`}
     >

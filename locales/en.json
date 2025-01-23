@@ -1,5 +1,20 @@
 {
-    "welcome": "Welcome",
-    "footerText": "Thank you for visiting"
+  "Sidebar": {
+    "name": "Ibrahim Hassouna",
+    "role": "Frontend Developer",
+    "location": "Egypt",
+    "skills": "Skills",
+    "courses": "Courses",
+    "projects": "Projects"
+  },
+  "MobileNav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "posts": "Posts",
+    "contact": "Contact Us",
+    "options": "Options",
+    "theme":"Theme",
+    "lang":"Lang"
   }
-  
+}

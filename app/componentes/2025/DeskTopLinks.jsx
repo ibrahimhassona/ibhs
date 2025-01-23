@@ -8,7 +8,6 @@ const DeskTopLinks = ({ data }) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const pathName = usePathname();
   const currentPathSegment = pathName.split("/")[2]; // تقسيم المسار واستخراج الفهرس الثاني
-  console.log(currentPathSegment);
   const active = !isDarkMode
     ? "text-slate-900 bg-gray-100"
     : "bg-slate-900 text-gray-100";
@@ -16,7 +15,6 @@ const DeskTopLinks = ({ data }) => {
   return (
     <div className="flex flex-col gap-1 ">
       {data.map((link, index) => {
-        console.log(link.href.split("/")[1]);
         return (
           <Link
             key={index}

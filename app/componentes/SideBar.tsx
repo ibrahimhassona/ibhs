@@ -81,9 +81,9 @@ const SideBar = () => {
             <FaUser size={40} className="text-slate-300" />
           </div>
           {/* --------- Mode Button --------- */}
-          <ModeSwitcher style={" absolute bottom-2 z-20 start-2"} />
+          <ModeSwitcher style={"w-8 h-8 absolute bottom-2 z-20 start-2"} />
           {/* --------- Language Switcher -------- */}
-          <LanguageSwitcher style={" bottom-12 z-20 start-2"} />
+          <LanguageSwitcher style={"absolute bottom-12 z-20 start-2 w-8 h-8"} />
           {/* OverLay */}
           <div className=" absolute h-full w-full top-0 right-0 bg-black/40 rounded-b-2xl" />
         </div>
@@ -96,7 +96,7 @@ const SideBar = () => {
               <Link
                 href="/path/to/your/cv.pdf" // ضع هنا رابط ملف الـ CV
                 download
-                className=" bg-emerald-500 rounded-md w-fit  flex items-center p-2 hover:bg-emerald-600 cust-trans"
+                className=" bg-primary rounded-md w-fit  flex items-center p-2 hover:bg-emerald-600 cust-trans"
               >
                 <FaDownload size={14} />
               </Link>
