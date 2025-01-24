@@ -16,6 +16,7 @@
 .dark {
   @apply bg-slate-900 text-white
 }
+
 .links {
   @apply text-black hover:text-black/70 duration-300 transition-all capitalize cursor-pointer;
 }
@@ -39,4 +40,7 @@
 }
 .cust-trans {
   @apply duration-300 transition-all;
+}
+.sectionHead {
+  @apply text-2xl font-bold uppercase my-4 max-sm:text-xl max-md:text-center
 }

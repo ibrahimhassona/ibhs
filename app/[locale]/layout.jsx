@@ -1,13 +1,10 @@
 import { Roboto, Poppins, Cairo } from "next/font/google";
 import "./globals.css";
-import Header from "../componentes/Header";
-import Footer from "../componentes/Footer";
-import { Providers } from "./Chakra-Ui/provider";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import SideBar from "../componentes/SideBar";
-import DarkModeProvider, { useDarkMode } from '@/lib/DarkModeContext'
-import MobileNavBar from '@/app/componentes/MobileNavBar'
+import DarkModeProvider from "@/lib/DarkModeContext";
+import MobileNavBar from "@/app/componentes/MobileNavBar";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -43,22 +40,23 @@ export default async function RootLayout({ children, params: { locale } }) {
   const messages = await getMessages(locale);
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <body
-        className={`${locale == "ar" ? cairo.className : poppins.variable
+      <DarkModeProvider>
+        <body
+          className={`${
+            locale == "ar" ? cairo.className : poppins.variable
           } grid grid-cols-4  mx-auto  h-screen gap-2 max-md:flex max-md:flex-col max-md:overflow-hidden`}
-      >
-        <Providers>
-            <DarkModeProvider>
+        >
           <NextIntlClientProvider locale={locale} messages={messages}>
             {/* <Header /> */}
-              <SideBar />
-              <div className=" col-span-3 h-screen overflow-y-auto px-2 shadow-xl max-md:pb-16 ">{children}</div>
-              <MobileNavBar />
-              {/* <Footer /> */}
+            <SideBar />
+            <div className=" col-span-3 h-screen overflow-y-auto px-2 shadow-xl max-md:pb-32 ">
+              {children}
+            </div>
+            <MobileNavBar />
+            {/* <Footer /> */}
           </NextIntlClientProvider>
-            </DarkModeProvider>
-        </Providers>
-      </body>
+        </body>
+      </DarkModeProvider>
     </html>
   );
 }

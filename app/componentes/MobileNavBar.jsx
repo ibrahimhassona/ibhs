@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 
 const MobileNavBar = () => {
-  const t =useTranslations("MobileNav")
+  const t = useTranslations("MobileNav");
   const navItems = [
     { icon: <Home size={20} />, url: "/", label: t("home"), main: true },
     {
@@ -50,6 +50,7 @@ const MobileNavBar = () => {
     const nextLocale = locale === "en" ? "ar" : "en";
     const newPathname = pathName.replace(`/${locale}`, `/${nextLocale}`);
     router.push(newPathname);
+    setIsMenuOpen(false);
   };
   // Framer Motion Variants for the menu
   const menuVariants = {
@@ -61,7 +62,6 @@ const MobileNavBar = () => {
     },
     exit: { y: "100%", opacity: 0, transition: { duration: 0.2 } },
   };
-  
 
   return (
     <nav
@@ -100,7 +100,11 @@ const MobileNavBar = () => {
             isMenuOpen ? active : ""
           }`}
         >
-          {isMenuOpen ? <IoClose size={20}  className="cust-trans animate-fade-up"/> : <CiMenuKebab size={20}  className="cust-trans animate-fade-up"/>}
+          {isMenuOpen ? (
+            <IoClose size={20} className="cust-trans animate-fade-up" />
+          ) : (
+            <CiMenuKebab size={20} className="cust-trans animate-fade-up" />
+          )}
           <span className="text-xs mt-1">{t("options")}</span>
         </button>
       </div>
@@ -117,7 +121,9 @@ const MobileNavBar = () => {
         >
           <div className="flex w-full gap-4 items-center justify-center">
             <span
-              onClick={toggleDarkMode}
+              onClick={() => {
+                toggleDarkMode(), setIsMenuOpen(false);
+              }}
               className={` cursor-pointer hover:text-primary cust-trans text-xs`}
             >
               {t("theme")}

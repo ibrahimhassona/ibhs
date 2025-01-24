@@ -228,7 +228,6 @@ export default function Profile() {
                   stiffness: 100,
                   damping: 10,
                 }}
-                
               >
                 <div className="flex items-center gap-4">
                   <div
