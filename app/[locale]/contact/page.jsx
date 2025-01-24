@@ -1,9 +1,9 @@
-import Skills from '@/app/componentes/2025/Skills'
+import ContactSection from '@/app/componentes/ContactSection'
 import React from 'react'
 
 const page = () => {
   return (
-    <Skills />
+    <ContactSection/>
   )
 }
 

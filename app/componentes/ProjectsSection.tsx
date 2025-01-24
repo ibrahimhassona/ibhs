@@ -53,20 +53,21 @@ const ProjectsSection = () => {
       className={`${isDarkMode ? "light" : "dark"} p-4 overflow-hidden`}
       id="projects"
     >
-      <h1 className="sectionHead ">{t("projects")}</h1>
-
       {projects.length > 0 ? (
+        <>
+      <h1 className="sectionHead uppercase">{t("projects")}</h1>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid gap-6 max-sm:gap-4 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2"
-        >
+          className="grid gap-6 max-sm:gap-4 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 my-10"
+          >
           {projects.map((project: any) => (
             <motion.div
-              key={project.id}
-              variants={itemVariants}
-              className="group"
+            key={project.id}
+            variants={itemVariants}
+            className="group"
             >
               <div className={`shadow-lg rounded-sm overflow-hidden cust-trans hover:shadow-xl border ${!isDarkMode?' border-slate-700':'border-gray-300'}`}>
                 <Link href={`projects/${project.id}`}>
@@ -79,7 +80,7 @@ const ProjectsSection = () => {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       quality={90}
                       loading="lazy"
-                    />
+                      />
                   </div>
                 </Link>
 
@@ -101,6 +102,7 @@ const ProjectsSection = () => {
             </motion.div>
           ))}
         </motion.div>
+          </>
       ) : (
         <Loader />
       )}

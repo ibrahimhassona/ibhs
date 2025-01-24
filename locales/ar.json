@@ -16,5 +16,12 @@
     "options": "خيارات",
     "theme": "الثيم",
     "lang": "اللغه"
+  },
+  "skills":{
+    "soft_skills":"المهارات الشخصية",
+    "technical_skills":"المهارات التقنية"
+  },
+  "posts":{
+    "postsHead":"منشوراتى"
   }
 }

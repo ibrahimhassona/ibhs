@@ -14,7 +14,14 @@
     "posts": "Posts",
     "contact": "Contact Us",
     "options": "Options",
-    "theme":"Theme",
-    "lang":"Lang"
+    "theme": "Theme",
+    "lang": "Lang"
+  },
+  "skills": {
+    "soft_skills": "Soft Skills",
+    "technical_skills": "Technical Skills"
+  },
+  "posts": {
+    "postsHead": "My Posts"
   }
 }

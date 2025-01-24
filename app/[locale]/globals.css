@@ -42,5 +42,5 @@
   @apply duration-300 transition-all;
 }
 .sectionHead {
-  @apply text-2xl font-bold uppercase my-4 max-sm:text-xl max-md:text-center
+  @apply text-2xl font-bold uppercase my-4 max-sm:text-xl max-md:text-center pt-10 max-sm:pt-4
 }
