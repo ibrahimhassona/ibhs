@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import SideBar from "../componentes/SideBar";
 import DarkModeProvider from "@/lib/DarkModeContext";
 import MobileNavBar from "@/app/componentes/MobileNavBar";
+import { arMetadata, enMetadata } from "@/lib/LinksData";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -19,22 +20,13 @@ const poppins = Poppins({
   weight: ["100", "300", "400", "500", "700", "900"],
   variable: "--poppins",
 });
-export const metadata = {
-  title: "IBHS",
-  description:
-    "Ibrahim Hassouna , Front End Developer , Web Developer , Nextjs Developer " +
-    [
-      "مبرمج مصرى",
-      "ابراهيم حسونه",
-      "مبرمج ويب",
-      " تفاصيل مواقع الكترونيه بسعر جيد ",
-    ].join(" , "),
-  icons: {
-    icon: ["/favicon.ico?v=4"],
-    apple: ["/apple-touch-icon.png?v=4"],
-    shortcut: ["/apple-touch-icon.png?v=4"],
-  },
-};
+// ------- Metadata Configuration ---------
+export function generateMetadata({ params }) {
+  const locale = params.locale;
+  // Return metadata based on locale
+  return locale === "ar" ? arMetadata : enMetadata;
+}
+
 
 export default async function RootLayout({ children, params: { locale } }) {
   const messages = await getMessages(locale);

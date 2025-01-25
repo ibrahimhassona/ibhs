@@ -62,7 +62,7 @@ const SideBar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
     <aside
-      className={`flex flex-col gap-6 w-full h-screen max-md:hidden drop-shadow-xl px-2   ${
+      className={`flex flex-col gap-6 w-full h-screen max-md:hidden drop-shadow-xl p-2   ${
         !isDarkMode ? "dark" : "light"
       }  `}
     >
@@ -75,7 +75,7 @@ const SideBar = () => {
             height={400}
             src={"/cover.jpg"}
             alt="cover"
-            className="w-full h-[200px] object-fill rounded-b-2xl"
+            className="w-full h-[200px] object-fill rounded-lg"
           />
           <div className="w-20 h-20 absolute -bottom-2 border-2 border-emerald-400 left-1/2 transform -translate-x-1/2 z-10 bg-slate-700 rounded-full flex items-center justify-center">
             <FaUser size={40} className="text-slate-300" />

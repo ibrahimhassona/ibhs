@@ -23,5 +23,21 @@
   },
   "posts":{
     "postsHead":"منشوراتى"
+  },
+  "contact":{
+    "title": "راسلنى على البريد الالكترونى",
+    "sent": "تم الإرسال بنجاح!",
+    "sending": "جاري الإرسال...",
+    "send": "إرسال",
+    "required": "الحقل مطلوب",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "message": "الرسالة",
+    "placeholderName": "أدخل اسمك",
+    "placeholderEmail": "أدخل بريدك الإلكتروني",
+    "placeholderSubject": "أدخل الموضوع",
+    "placeholderMessage": "أدخل رسالتك"
   }
+  
 }
