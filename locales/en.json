@@ -5,7 +5,13 @@
     "location": "Egypt",
     "skills": "Skills",
     "courses": "Courses",
-    "projects": "Projects"
+    "projects": "Projects",
+    "work_for": "Work For",
+    "profile": "Profile",
+    "posts": "My Posts",
+    "contact": "Contact Me",
+    "aboutme":"About Me ",
+    "steps_work":"Working principles"
   },
   "MobileNav": {
     "home": "Home",
@@ -24,7 +30,7 @@
   "posts": {
     "postsHead": "My Posts"
   },
-  "contact":{
+  "contact": {
     "title": "Contact Me",
     "sent": "Sending succeeded!",
     "sending": "Sending...",
@@ -39,5 +45,4 @@
     "placeholderSubject": "Enter the subject",
     "placeholderMessage": "Enter the message"
   }
-  
 }

@@ -5,7 +5,13 @@
     "location": "مصر",
     "skills": "المهارات",
     "courses": "الدورات",
-    "projects": "المشاريع"
+    "work_for": "اعمل لدى",
+    "profile": "الملف الشخصي",
+    "projects": "المشاريع",
+    "posts": "منشوراتى",
+    "contact": "تواصل معى",
+    "aboutme":"نبذة عني",
+    "steps_work":"مبادئ العمل"
   },
   "MobileNav": {
     "home": "الرئيسية",
@@ -17,14 +23,14 @@
     "theme": "الثيم",
     "lang": "اللغه"
   },
-  "skills":{
-    "soft_skills":"المهارات الشخصية",
-    "technical_skills":"المهارات التقنية"
+  "skills": {
+    "soft_skills": "المهارات الشخصية",
+    "technical_skills": "المهارات التقنية"
   },
-  "posts":{
-    "postsHead":"منشوراتى"
+  "posts": {
+    "postsHead": "منشوراتى"
   },
-  "contact":{
+  "contact": {
     "title": "راسلنى على البريد الالكترونى",
     "sent": "تم الإرسال بنجاح!",
     "sending": "جاري الإرسال...",
@@ -39,5 +45,4 @@
     "placeholderSubject": "أدخل الموضوع",
     "placeholderMessage": "أدخل رسالتك"
   }
-  
 }

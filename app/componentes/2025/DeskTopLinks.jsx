@@ -11,14 +11,16 @@ const DeskTopLinks = ({ data }) => {
   const active = !isDarkMode
     ? "text-slate-900 bg-gray-100"
     : "bg-slate-900 text-gray-100";
-
+    const hover = isDarkMode 
+    ? 'hover:bg-slate-900 hover:text-gray-100' 
+    : 'hover:text-slate-900 hover:bg-gray-100';
   return (
     <div className="flex flex-col gap-1 ">
       {data.map((link, index) => {
         return (
           <Link
             key={index}
-            className={`flex items-center gap-2 cust-trans w-full  px-2 py-1 rounded-sm border border-transparent  
+            className={`flex items-center gap-2 cust-trans w-full ${`${ currentPathSegment !== link.href.split("/")[1] ? hover:''}`}  px-2 py-1 rounded-sm border border-transparent  
             ${
               currentPathSegment === link.href.split("/")[1]
                 ? active
