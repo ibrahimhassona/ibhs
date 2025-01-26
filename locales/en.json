@@ -46,5 +46,13 @@
     "placeholderEmail": "Enter your email",
     "placeholderSubject": "Enter the subject",
     "placeholderMessage": "Enter the message"
+  },
+  "projects": {
+    "publish_date": "Publish Date",
+    "description": "Description",
+    "technologies": "Technologies",
+    "back": "back",
+    "repo": "Repository",
+    "live": "Live"
   }
 }

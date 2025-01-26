@@ -6,7 +6,8 @@ import { useDarkMode } from "@/lib/DarkModeContext";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { getProjects } from "@/lib/getProjects";
-import Loading from "./Loading";
+import Loader from "./2025/ui/Loader";
+
 
 const ProjectsSection = () => {
   const t = useTranslations("Sidebar");
@@ -51,7 +52,7 @@ const ProjectsSection = () => {
     },
   };
 
-  if (!projects) return <Loading />;
+  if (!projects) return <Loader />;
 
   // Separate featured and regular projects
   const featuredProjects = projects.filter(project => project.isFeature);
@@ -75,7 +76,7 @@ const ProjectsSection = () => {
               !isDarkMode ? "border-slate-700" : "border-gray-300"
             }`}
           >
-            <Link href={`projects/${project.slug}`} className="block">
+            <Link href={`projects/${project.slug}`} className="block relative">
               <div className="relative h-48 max-sm:h-36 overflow-hidden">
                 <Image
                   className="w-full h-full object-cover transform cust-trans transition-transform duration-300 group-hover:scale-105"
@@ -87,21 +88,22 @@ const ProjectsSection = () => {
                   loading="lazy"
                 />
               </div>
-            </Link>
-            <div className="p-4 flex flex-col gap-2 mt-auto">
-              <div className="flex justify-between items-center max-md:flex-col gap-1">
-                <h2 className="font-semibold line-clamp-1 max-sm:text-sm">
-                  {project.title.slice(0, 15)}
-                </h2>
-                <span
-                  className={`px-2 py-1 text-xs rounded-sm text-primary ${
+              <span
+                  className={` absolute end-0 top-1 px-2 py-1 text-xs rounded-s-sm  ${
                     !isDarkMode
-                      ? "bg-gray-800/70 border-gray-700"
-                      : "bg-white/70 border-gray-100"
+                      ? "bg-gray-800/90 border-gray-700"
+                      : "bg-white/90 border-gray-100"
                   }`}
                 >
                   {project.status == "Full" ? t("full") : t("shared")}
                 </span>
+            </Link>
+            <div className="p-4 flex flex-col gap-2 mt-auto">
+              <div className="flex justify-between items-center max-md:flex-col gap-1">
+                <h2 className="font-semibold line-clamp-1 text-sm">
+                  {project.title.slice(0, 30)}
+                </h2>
+              
               </div>
             </div>
           </div>

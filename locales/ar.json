@@ -10,10 +10,10 @@
     "projects": "المشاريع",
     "posts": "منشوراتى",
     "contact": "تواصل معى",
-    "aboutme":"نبذة عني",
-    "steps_work":"مبادئ العمل",
-    "full":"بشكل كامل",
-    "shared":"مع زميل"
+    "aboutme": "نبذة عني",
+    "steps_work": "مبادئ العمل",
+    "full": "بشكل كامل",
+    "shared": "مع زميل"
   },
   "MobileNav": {
     "home": "الرئيسية",
@@ -46,5 +46,13 @@
     "placeholderEmail": "أدخل بريدك الإلكتروني",
     "placeholderSubject": "أدخل الموضوع",
     "placeholderMessage": "أدخل رسالتك"
+  },
+  "projects": {
+    "publish_date": "تاريخ النشر",
+    "description": "الوصف",
+    "technologies":"التقنيات",
+    "back":"عودة",
+    "repo":"رابط المشروع",
+    "live":"عرض المشروع"
   }
 }
