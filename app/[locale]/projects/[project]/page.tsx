@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Project from "@/app/componentes/Project";
-import { Params, Props } from "@/app/[locale]/type";
 import { getProjects } from "@/lib/getProjects";
+
+interface Params {
+  locale: string;
+  project: string;  // Explicitly define as string
+}
+
+interface Props {
+  params: Params;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const projects = await getProjects(`projects-${params.locale}`);
