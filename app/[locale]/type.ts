@@ -51,7 +51,9 @@ export interface socialDataProps {
   }
   // for meta data to each project 
   export type Props = {
-    params: { project: string };
+    params: {
+      locale: any; project: string 
+};
   };
   // for the params to each project
   export interface Params {
