@@ -10,8 +10,10 @@
     "profile": "Profile",
     "posts": "My Posts",
     "contact": "Contact Me",
-    "aboutme":"About Me ",
-    "steps_work":"Working principles"
+    "aboutme": "About Me ",
+    "steps_work": "Working principles",
+    "full": "Fully",
+    "shared": "With a coworker"
   },
   "MobileNav": {
     "home": "Home",

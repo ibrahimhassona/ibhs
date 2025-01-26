@@ -11,7 +11,9 @@
     "posts": "منشوراتى",
     "contact": "تواصل معى",
     "aboutme":"نبذة عني",
-    "steps_work":"مبادئ العمل"
+    "steps_work":"مبادئ العمل",
+    "full":"بشكل كامل",
+    "shared":"مع زميل"
   },
   "MobileNav": {
     "home": "الرئيسية",

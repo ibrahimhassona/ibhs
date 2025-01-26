@@ -2,8 +2,8 @@ import supabase from "./supabase";
 
 export default async function fetchProjects() {
   try {
-    const { data, error } = await supabase.from("ibhs-projects").select("*");
-
+    const { data, error } = await supabase.from("projects-en").select("*");
+    console.log(data)
     if (error) {
       throw error;
     }

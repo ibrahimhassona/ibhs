@@ -1,28 +1,31 @@
 "use client";
-
-import { FaGithub } from "react-icons/fa";
-import { TbWorldUp } from "react-icons/tb";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import fetchProjects from "@/lib/fetchProjects";
 import { useDarkMode } from "@/lib/DarkModeContext";
-import Loader from "@/app/componentes/2025/ui/Loader";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import { getProjects } from "@/lib/getProjects";
+import Loading from "./Loading";
 
 const ProjectsSection = () => {
   const t = useTranslations("Sidebar");
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<any[] | null>([]);
   const { isDarkMode } = useDarkMode();
+  const locale = useLocale();
 
   useEffect(() => {
-    const extractTheData = async () => {
-      const data = await fetchProjects();
-      setProjects(data?.map((project) => project.data));
+    const fetchProjectsData = async () => {
+      try {
+        const data = await getProjects(`projects-${locale}`);
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
     };
-    extractTheData();
-  }, []);
+    
+    fetchProjectsData();
+  }, [locale]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,64 +51,79 @@ const ProjectsSection = () => {
     },
   };
 
+  if (!projects) return <Loading />;
+
+  // Separate featured and regular projects
+  const featuredProjects = projects.filter(project => project.isFeature);
+  const regularProjects = projects.filter(project => !project.isFeature);
+
+  const renderProjects = (projectList: any[]) => (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="grid gap-6 max-sm:gap-4 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 my-10"
+    >
+      {projectList?.map((project: any) => (
+        <motion.div
+          key={project.id}
+          variants={itemVariants}
+          className="group"
+        >
+          <div
+            className={`shadow-lg rounded-sm overflow-hidden cust-trans hover:shadow-xl border h-full flex flex-col ${
+              !isDarkMode ? "border-slate-700" : "border-gray-300"
+            }`}
+          >
+            <Link href={`projects/${project.slug}`} className="block">
+              <div className="relative h-48 max-sm:h-36 overflow-hidden">
+                <Image
+                  className="w-full h-full object-cover transform cust-trans transition-transform duration-300 group-hover:scale-105"
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={90}
+                  loading="lazy"
+                />
+              </div>
+            </Link>
+            <div className="p-4 flex flex-col gap-2 mt-auto">
+              <div className="flex justify-between items-center max-md:flex-col gap-1">
+                <h2 className="font-semibold line-clamp-1 max-sm:text-sm">
+                  {project.title.slice(0, 15)}
+                </h2>
+                <span
+                  className={`px-2 py-1 text-xs rounded-sm text-primary ${
+                    !isDarkMode
+                      ? "bg-gray-800/70 border-gray-700"
+                      : "bg-white/70 border-gray-100"
+                  }`}
+                >
+                  {project.status == "Full" ? t("full") : t("shared")}
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+
   return (
     <section
       className={`${isDarkMode ? "light" : "dark"} p-4 overflow-hidden`}
       id="projects"
     >
-      {projects.length > 0 ? (
+      {featuredProjects.length > 0 && (
         <>
-      <h1 className="sectionHead uppercase">{t("projects")}</h1>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid gap-6 max-sm:gap-4 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 my-10"
-          >
-          {projects.map((project: any) => (
-            <motion.div
-            key={project.id}
-            variants={itemVariants}
-            className="group"
-            >
-              <div className={`shadow-lg rounded-sm overflow-hidden cust-trans hover:shadow-xl border ${!isDarkMode?' border-slate-700':'border-gray-300'}`}>
-                <Link href={`projects/${project.id}`}>
-                  <div className="relative h-48 max-sm:h-36 overflow-hidden">
-                    <Image
-                      className="w-full h-full object-cover transform cust-trans transition-transform duration-300 group-hover:scale-110"
-                      src={project.img}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      quality={90}
-                      loading="lazy"
-                      />
-                  </div>
-                </Link>
-
-                <div className="p-4 flex justify-between items-center max-sm:flex-col gap-1">
-                  <h2 className="text-lg font-bold line-clamp-1 max-sm:text-sm ">
-                    {project.title}
-                  </h2>
-                  <span
-                    className={`px-2 py-1 text-xs h-fit  rounded-sm  text-primary  ${
-                      !isDarkMode
-                        ? "bg-gray-800/70 border-gray-700 "
-                        : "bg-white/70 border-gray-100 "
-                    }`}
-                  >
-                    Frontend
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-          </>
-      ) : (
-        <Loader />
+          <h1 className="sectionHead uppercase">{t("featuredProjects")}</h1>
+          {renderProjects(featuredProjects)}
+        </>
       )}
+
+      <h1 className="sectionHead uppercase">{t("projects")}</h1>
+      {renderProjects(regularProjects)}
     </section>
   );
 };
