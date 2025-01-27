@@ -1,0 +1,59 @@
+{
+  "Sidebar": {
+    "name": "ابراهيم حسونة",
+    "role": "مطور واجهات أمامية",
+    "location": "مصر",
+    "skills": "المهارات",
+    "courses": "الدورات",
+    "work_for": "اعمل لدى",
+    "profile": "الملف الشخصي",
+    "projects": "المشاريع",
+    "posts": "منشوراتى",
+    "contact": "تواصل معى",
+    "aboutme": "نبذة عني",
+    "steps_work": "مبادئ العمل",
+    "full": "بشكل كامل",
+    "shared": "مع زميل",
+    "cv_download":"تحميل"
+  },
+  "MobileNav": {
+    "home": "الرئيسية",
+    "projects": "المشاريع",
+    "skills": "المهارات",
+    "posts": "منشورات",
+    "contact": "تواصل معنا",
+    "options": "خيارات",
+    "theme": "الثيم",
+    "lang": "اللغه"
+  },
+  "skills": {
+    "soft_skills": "المهارات الشخصية",
+    "technical_skills": "المهارات التقنية"
+  },
+  "posts": {
+    "postsHead": "منشوراتى"
+  },
+  "contact": {
+    "title": "راسلنى على البريد الالكترونى",
+    "sent": "تم الإرسال بنجاح!",
+    "sending": "جاري الإرسال...",
+    "send": "إرسال",
+    "required": "الحقل مطلوب",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "message": "الرسالة",
+    "placeholderName": "أدخل اسمك",
+    "placeholderEmail": "أدخل بريدك الإلكتروني",
+    "placeholderSubject": "أدخل الموضوع",
+    "placeholderMessage": "أدخل رسالتك"
+  },
+  "projects": {
+    "publish_date": "تاريخ النشر",
+    "description": "الوصف",
+    "technologies":"التقنيات",
+    "back":"عودة",
+    "repo":"رابط المشروع",
+    "live":"عرض المشروع"
+  }
+}

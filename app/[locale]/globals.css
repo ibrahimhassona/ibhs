@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-light: #ffffff;
+  --background-dark: #121212;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+}
+
+.light {
+    @apply text-slate-900 bg-gray-100
+}
+
+.dark {
+  @apply bg-slate-900 text-white
+}
+
+.links {
+  @apply text-black hover:text-black/70 duration-300 transition-all capitalize cursor-pointer;
+}
+.text-sky {
+  @apply text-black/70;
+}
+.bg-sky {
+  @apply bg-black/70;
+}
+.text-blcak {
+  @apply text-black;
+}
+.bg-blcak {
+  @apply bg-black;
+}
+.cloud {
+  background-image: url("/cloud.png");
+}
+.cloud-2 {
+  background-image: url("/cloud-1.png");
+}
+.cust-trans {
+  @apply duration-300 transition-all;
+}
+.sectionHead {
+  @apply text-2xl font-bold uppercase my-4 max-sm:text-xl max-md:text-center pt-10 max-sm:pt-4
+}
+.label{
+  @apply font-semibold max-sm:text-sm mb-3 block
+}

@@ -1,90 +1,131 @@
 "use client";
-import { FaGithub } from "react-icons/fa";
-import { TbWorldUp } from "react-icons/tb";
 import Link from "next/link";
-import CustomBtn from "./CustomBtn";
 import { motion } from "framer-motion";
-import { FadeIn } from "../variants";
 import { useEffect, useState } from "react";
-import Loading from "./Loading";
-import fetchProjects from "@/lib/fetchProjects";
+import { useDarkMode } from "@/lib/DarkModeContext";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
+import { getProjects } from "@/lib/getProjects";
+import Loader from "./2025/ui/Loader";
+
 
 const ProjectsSection = () => {
-  const [projects, setProjects] = useState<any[]>([]);
+  const t = useTranslations("Sidebar");
+  const [projects, setProjects] = useState<any[] | null>([]);
+  const { isDarkMode } = useDarkMode();
+  const locale = useLocale();
 
   useEffect(() => {
-    const extractTheData = async () => {
-      const data = await fetchProjects();
-      setProjects(data?.map((project) => project.data));
+    const fetchProjectsData = async () => {
+      try {
+        const data = await getProjects(`projects-${locale}`);
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
     };
+    
+    fetchProjectsData();
+  }, [locale]);
 
-    extractTheData();
-  }, []);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-  return (
-    <section className="container" id="projects">
-      <h1 className="text-2xl font-bold uppercase font-roboto max-sm:text-xl max-md:text-center">
-        My Projects
-      </h1>
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
 
-      {/* projects Map */}
-      {projects.length > 0 ? (
-        <div className="grid gap-5 mt-16 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 max-sm:flex max-sm:flex-col max-md:px-[35px]">
-          {projects.map((project: any, index: number) => (
-            <motion.div
-              key={project.id}
-              id={project.title}
-              className="bg-gray-100 shadow-md p-2"
-              variants={FadeIn("down", index / 10 + 0.1)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.2 }}
-            >
-              <div className="overflow-hidden cursor-pointer h-[207px]">
-                <img
-                  className="h-full w-full opacity-80 duration-300 transition-all hover:opacity-100 hover:scale-105"
-                  src={project.img}
+  if (!projects) return <Loader />;
+
+  // Separate featured and regular projects
+  const featuredProjects = projects.filter(project => project.isFeature);
+  const regularProjects = projects.filter(project => !project.isFeature);
+
+  const renderProjects = (projectList: any[]) => (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="grid gap-6 max-sm:gap-4 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 my-10"
+    >
+      {projectList?.map((project: any) => (
+        <motion.div
+          key={project.id}
+          variants={itemVariants}
+          className="group"
+        >
+          <div
+            className={`shadow-lg rounded-sm overflow-hidden cust-trans hover:shadow-xl border h-full flex flex-col ${
+              !isDarkMode ? "border-slate-700" : "border-gray-300"
+            }`}
+          >
+            <Link href={`projects/${project.slug}`} className="block relative">
+              <div className="relative h-48 max-sm:h-36 overflow-hidden">
+                <Image
+                  className="w-full h-full object-cover transform cust-trans transition-transform duration-300 group-hover:scale-105"
+                  src={project.image}
                   alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={90}
+                  loading="lazy"
                 />
               </div>
-              {/* content of project */}
-              <div className="h-[100px] flex flex-col gap-2 justify-between py-2">
-                <h1 className="text-lg capitalize line-clamp-1">
-                  {project.title}
-                </h1>
-                {/* Buttons */}
-                <div className="flex justify-between items-center">
-                  <CustomBtn
-                    style="bg-sky text-white px-3 py-[8px] rounded-sm hover:bg-black capitalize tracking-[0px]"
-                    content="Show Details"
-                    to={`projects/${project.id}`}
-                  />
-                  <div className="text-3xl flex gap-4 text-sky">
-                    {/* github link */}
-                    <Link
-                      className="hover:text-black duration-300 transition-all"
-                      href={project.repo}
-                      target="_blank"
-                    >
-                      <FaGithub />
-                    </Link>
-                    {/* live link */}
-                    <Link
-                      className="hover:text-black duration-300 transition-all"
-                      href={project.live}
-                      target="_blank"
-                    >
-                      <TbWorldUp />
-                    </Link>
-                  </div>
-                </div>
+              <span
+                  className={` absolute end-0 top-1 px-2 py-1 text-xs rounded-s-sm  ${
+                    !isDarkMode
+                      ? "bg-gray-800/90 border-gray-700"
+                      : "bg-white/90 border-gray-100"
+                  }`}
+                >
+                  {project.status == "Full" ? t("full") : t("shared")}
+                </span>
+            </Link>
+            <div className="p-4 flex flex-col gap-2 mt-auto">
+              <div className="flex justify-between items-center max-md:flex-col gap-1">
+                <h2 className="font-semibold line-clamp-1 text-sm">
+                  {project.title.slice(0, 30)}
+                </h2>
+              
               </div>
-            </motion.div>
-          ))}
-        </div>
-      ) : (
-        <Loading />
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+
+  return (
+    <section
+      className={`${isDarkMode ? "light" : "dark"} p-4 overflow-hidden`}
+      id="projects"
+    >
+      {featuredProjects.length > 0 && (
+        <>
+          <h1 className="sectionHead uppercase">{t("featuredProjects")}</h1>
+          {renderProjects(featuredProjects)}
+        </>
       )}
+
+      <h1 className="sectionHead uppercase">{t("projects")}</h1>
+      {renderProjects(regularProjects)}
     </section>
   );
 };

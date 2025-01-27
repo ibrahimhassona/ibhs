@@ -1,0 +1,59 @@
+{
+  "Sidebar": {
+    "name": "Ibrahim Hassouna",
+    "role": "Frontend Developer",
+    "location": "Egypt",
+    "skills": "Skills",
+    "courses": "Courses",
+    "projects": "Projects",
+    "work_for": "Work For",
+    "profile": "Profile",
+    "posts": "My Posts",
+    "contact": "Contact Me",
+    "aboutme": "About Me ",
+    "steps_work": "Working principles",
+    "full": "Fully",
+    "shared": "With a coworker",
+    "cv_download":"Download"
+  },
+  "MobileNav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "posts": "Posts",
+    "contact": "Contact Us",
+    "options": "Options",
+    "theme": "Theme",
+    "lang": "Lang"
+  },
+  "skills": {
+    "soft_skills": "Soft Skills",
+    "technical_skills": "Technical Skills"
+  },
+  "posts": {
+    "postsHead": "My Posts"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "sent": "Sending succeeded!",
+    "sending": "Sending...",
+    "send": "Send",
+    "required": "Required",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "placeholderName": "Enter your name",
+    "placeholderEmail": "Enter your email",
+    "placeholderSubject": "Enter the subject",
+    "placeholderMessage": "Enter the message"
+  },
+  "projects": {
+    "publish_date": "Publish Date",
+    "description": "Description",
+    "technologies": "Technologies",
+    "back": "back",
+    "repo": "Repository",
+    "live": "Live"
+  }
+}
