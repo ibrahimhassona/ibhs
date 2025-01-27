@@ -99,7 +99,7 @@ const SideBar = () => {
                   width={400}
                   height={400}
                   src={data[0].image}
-                  alt="cover"
+                  alt="personal"
                   className=""
                 />
               </div>
