@@ -20,7 +20,6 @@ export default function Profile() {
 
     fetchData();
   }, [locale]);
-  console.log("data:", data);
   const { isDarkMode } = useDarkMode();
 
   if (!data) return <Loader />;

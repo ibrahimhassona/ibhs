@@ -15,7 +15,7 @@ const DeskTopLinks = ({ data }) => {
     ? 'hover:bg-slate-900 hover:text-gray-100' 
     : 'hover:text-slate-900 hover:bg-gray-100';
   return (
-    <div className="flex flex-col gap-1 ">
+    <div className="flex flex-col gap-2 ">
       {data.map((link, index) => {
         return (
           <Link

@@ -13,7 +13,8 @@
     "aboutme": "About Me ",
     "steps_work": "Working principles",
     "full": "Fully",
-    "shared": "With a coworker"
+    "shared": "With a coworker",
+    "cv_download":"Download"
   },
   "MobileNav": {
     "home": "Home",

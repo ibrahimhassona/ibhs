@@ -33,7 +33,6 @@ const SideBar = () => {
     
     fetchData();
   }, [locale]);
-  console.log(data);
   
   // ------- theme -----
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -93,6 +92,7 @@ const SideBar = () => {
                 src={data[0].cover}
                 alt="cover"
                 className="w-full h-[200px] object-fill rounded-lg"
+                  priority
               />
               <div className="w-20 h-20 absolute overflow-hidden -bottom-2 border-2 border-emerald-400 left-1/2 transform -translate-x-1/2 z-10 bg-slate-700 rounded-full flex items-center justify-center">
                 <Image
@@ -101,6 +101,7 @@ const SideBar = () => {
                   src={data[0].image}
                   alt="personal"
                   className=""
+                  priority
                 />
               </div>
 
@@ -137,39 +138,39 @@ const SideBar = () => {
                 {/* Grid items */}
                 <div className="grid grid-cols-1 gap-2 justify-between w-full">
                   {/* ------ Addresses ------ */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex max-xl:flex-col max-xl:items-start items-center gap-2">
                     <Lable
-                      style={""}
-                      iconColor=""
+                      style={"text-xs"}
+                      iconColor="text-primary"
                       icon={FaMapMarkerAlt}
                       text={data[0].addresses[0]}
                       type={"location"}
                     />
                     <Lable
-                      style={""}
-                      iconColor=""
+                      style={"text-xs"}
+                      iconColor="text-primary"
                       icon={FaMapMarkerAlt}
                       text={data[0].addresses[1]}
                       type={"location"}
                     />
                   </div>
                   <Lable
-                    style={""}
-                    iconColor=""
+                    style={"text-xs"}
+                    iconColor="text-primary"
                     icon={RiOrganizationChart}
                     text={`${t("work_for")} "${data[0].current_company}"`}
                     type={"company"}
                   />
                   <Lable
                     style={""}
-                    iconColor=""
+                    iconColor="text-primary"
                     icon={FaWhatsapp}
                     text={data[0].phone_numbers[0]}
                     type={"whatsapp"}
                   />
                   <Lable
                     style={""}
-                    iconColor=""
+                    iconColor="text-primary"
                     icon={MdOutlineAlternateEmail}
                     text={data[0].email}
                     type={"email"}

@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useDarkMode } from "@/lib/DarkModeContext";
 import Loader from "@/app/componentes/2025/ui/Loader";
 import { getData } from "@/lib/getData";
-import { GrTechnology } from "react-icons/gr";
+import { MdDeveloperMode } from "react-icons/md";
 
 const Skills = () => {
   const locale = useLocale();
@@ -46,14 +46,13 @@ const Skills = () => {
       } catch (error) {
         console.error("Error fetching skills:", error);
       } finally {
-      
       }
     };
-  
+
     fetchSkills();
   }, [locale]);
 
-  if (!skills) return <Loader />; 
+  if (!skills) return <Loader />;
   // General styles for item cards
   const cardStyles = `flex hover:shadow-md cust-trans cursor-pointer flex-col items-center text-center px-2 py-[10px] rounded-sm h-full gap-1 justify-center border ${
     !isDarkMode ? "border-slate-700" : "border-gray-300"
@@ -61,6 +60,29 @@ const Skills = () => {
 
   return (
     <div className="p-4 overflow-hidden">
+      {/* Technical Skills */}
+      <div className="pt-10">
+        <h1 className="sectionHead uppercase">{t("technical_skills")}</h1>
+        <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3 max-sm:grid-cols-2 gap-2 my-10">
+          {skills.dataTech.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              className={`rounded-sm cust-trans hover:shadow-md py-3 cursor-pointer flex flex-col justify-center items-center gap-2 border ${
+                !isDarkMode ? "border-slate-700" : "border-gray-300"
+              }`}
+            >
+              <h1 className="text-2xl text-primary">
+                <MdDeveloperMode size={22} />
+              </h1>
+              <h2 className="text-sm font-semibold">{item}</h2>
+            </motion.div>
+          ))}
+        </div>
+      </div>
       {/* Soft Skills */}
       <h1 className="sectionHead uppercase">{t("soft_skills")}</h1>
       <motion.div
@@ -75,35 +97,13 @@ const Skills = () => {
             variants={itemVariants}
             className={cardStyles}
           >
-            <h2 className="capitalize font-semibold text-primary">{skill.title}</h2>
+            <h2 className="capitalize font-semibold text-primary">
+              {skill.title}
+            </h2>
             <p className="text-[14px]">{skill.desc}</p>
           </motion.div>
         ))}
       </motion.div>
-
-      {/* Technical Skills */}
-      <div className="pt-10">
-        <h1 className="sectionHead uppercase">{t("technical_skills")}</h1>
-        <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3 max-sm:grid-cols-2 gap-2 my-10">
-          {skills.dataTech.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true, amount: 0.4 }}
-              className={`rounded-sm mytransition py-3 cursor-pointer flex flex-col justify-center items-center gap-2 border ${
-                !isDarkMode ? "border-slate-700" : "border-gray-300"
-              }`}
-            >
-              <h1 className="text-2xl text-primary">
-                <GrTechnology size={18}/>
-              </h1>
-              <h2 className="text-sm ">{item}</h2>
-            </motion.div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };
