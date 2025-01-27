@@ -55,8 +55,8 @@ const ProjectsSection = () => {
   if (!projects) return <Loader />;
 
   // Separate featured and regular projects
-  const featuredProjects = projects.filter(project => project.isFeature);
-  const regularProjects = projects.filter(project => !project.isFeature);
+  const featuredProjects = projects.filter(project => project?.isFeature);
+  const regularProjects = projects.filter(project => !project?.isFeature);
 
   const renderProjects = (projectList: any[]) => (
     <motion.div
@@ -67,7 +67,7 @@ const ProjectsSection = () => {
     >
       {projectList?.map((project: any) => (
         <motion.div
-          key={project.id}
+          key={project?.id}
           variants={itemVariants}
           className="group"
         >
@@ -76,16 +76,17 @@ const ProjectsSection = () => {
               !isDarkMode ? "border-slate-700" : "border-gray-300"
             }`}
           >
-            <Link href={`projects/${project.slug}`} className="block relative">
+            <Link href={`projects/${project?.slug}`} className="block relative">
               <div className="relative h-48 max-sm:h-36 overflow-hidden">
                 <Image
                   className="w-full h-full object-cover transform cust-trans transition-transform duration-300 group-hover:scale-105"
-                  src={project.image}
-                  alt={project.title}
-                  fill
+                  src={project?.image}
+                  alt={project?.title}
+                  height={400}
+                  width={400}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   quality={90}
-                  loading="lazy"
+                  priority
                 />
               </div>
               <span
@@ -95,13 +96,13 @@ const ProjectsSection = () => {
                       : "bg-white/90 border-gray-100"
                   }`}
                 >
-                  {project.status == "Full" ? t("full") : t("shared")}
+                  {project?.status == "Full" ? t("full") : t("shared")}
                 </span>
             </Link>
             <div className="p-4 flex flex-col gap-2 mt-auto">
               <div className="flex justify-between items-center max-md:flex-col gap-1">
                 <h2 className="font-semibold line-clamp-1 text-sm">
-                  {project.title.slice(0, 30)}
+                  {project?.title.slice(0, 30)}
                 </h2>
               
               </div>
@@ -117,7 +118,7 @@ const ProjectsSection = () => {
       className={`${isDarkMode ? "light" : "dark"} p-4 overflow-hidden`}
       id="projects"
     >
-      {featuredProjects.length > 0 && (
+      {featuredProjects?.length > 0 && (
         <>
           <h1 className="sectionHead uppercase">{t("featuredProjects")}</h1>
           {renderProjects(featuredProjects)}
