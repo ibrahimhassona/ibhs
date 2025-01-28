@@ -191,7 +191,6 @@ const SideBar = () => {
 };
 
 export default SideBar;
-
 const Lable = ({ style, iconColor, icon: Icon, text, type }: any) => {
   const getLink = () => {
     switch (type) {
@@ -215,16 +214,20 @@ const Lable = ({ style, iconColor, icon: Icon, text, type }: any) => {
       }`}
     >
       <Icon size={14} className={iconColor} />
-      <Link
-        href={getLink()}
-        className={`${style} font-bold ${
-          type == "email" ? "max-lg:text-xs" : ""
-        }`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {text}
-      </Link>
+      {type === "location" || type === "company" ? (
+        <span className={`${style} font-bold`}>{text}</span>
+      ) : (
+        <Link
+          href={getLink()}
+          className={`${style} font-bold ${
+            type == "email" ? "max-lg:text-xs" : ""
+          }`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {text}
+        </Link>
+      )}
     </div>
   );
 };

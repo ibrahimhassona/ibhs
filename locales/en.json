@@ -14,7 +14,11 @@
     "steps_work": "Working principles",
     "full": "Fully",
     "shared": "With a coworker",
-    "cv_download":"Download"
+    "cv_download":"Download",
+    "404": "404",
+    "pageNotFound": "Page Not Found",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "returnToHome": "Return to Home"
   },
   "MobileNav": {
     "home": "Home",
