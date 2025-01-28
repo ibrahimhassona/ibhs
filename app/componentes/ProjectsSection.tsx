@@ -120,7 +120,7 @@ const ProjectsSection = () => {
     >
       {featuredProjects?.length > 0 && (
         <>
-          <h1 className="sectionHead uppercase">{t("featuredProjects")}</h1>
+          <h1 className="sectionHead uppercase">{t("latest")}</h1>
           {renderProjects(featuredProjects)}
         </>
       )}

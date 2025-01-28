@@ -38,7 +38,7 @@ function ProjectDetails({ projectSlug }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto px-4 py-20 min-h-screen"
+      className="container mx-auto px-4 py-20 min-h-screen overflow-hidden"
     >
       <div className="grid md:grid-cols-1 gap-10 items-center">
         {/* Project Image */}
@@ -48,15 +48,15 @@ function ProjectDetails({ projectSlug }) {
           transition={{ delay: 0.2, type: "spring" }}
           className="rounded-xl overflow-hidden shadow-2xl max-w-[600px]"
         >
-<div className="relative w-[600px] h-[400px]">
-  <Image
-    src={projectData?.image}
-    alt={projectData?.title}
-    fill
-    className="object-cover rounded-xl"
-    priority
-  />
-</div>
+          <div className="relative w-[600px] h-[400px]">
+            <Image
+              src={projectData?.image}
+              alt={projectData?.title}
+              fill
+              className="object-cover rounded-xl"
+              priority
+            />
+          </div>
         </motion.div>
 
         {/* Project Details */}
@@ -78,10 +78,9 @@ function ProjectDetails({ projectSlug }) {
                 key={tech}
                 className={`
                   py-1 px-2 text-sm rounded-md
-                  ${
-                    !isDarkMode
-                      ? "bg-gray-800 text-gray-200"
-                      : "bg-gray-200 text-gray-800"
+                  ${!isDarkMode
+                    ? "bg-gray-800 text-gray-200"
+                    : "bg-gray-200 text-gray-800"
                   }
                 `}
               >
@@ -102,24 +101,35 @@ function ProjectDetails({ projectSlug }) {
           </p>
 
           {/* Project Links */}
-          <div className="flex item-center gap-2">
-            <Link
-              href={`${projectData?.links.repo}`}
-              target="_blank"
-              className="flex items-center gap-2 px-4 py-1 bg-primary text-white rounded-md hover:opacity-90 transition"
-            >
-              <FaGithub />
-              {t("repo")}
-            </Link>
-            <Link
-              href={`${projectData?.links.live}`}
-              target="_blank"
-              className="flex items-center gap-2 px-4 py-1 cust-trans border border-primary text-primary rounded-md hover:bg-primary hover:text-white "
-            >
-              <FaExternalLinkAlt />
-              {t("live")}
-            </Link>
+          {/* Project Links */}
+          <div className="flex flex-col gap-2">
+            {projectData?.links?.repo ? (
+              <Link
+                href={`${projectData.links.repo}`}
+                target="_blank"
+                className="flex items-center gap-2 px-4 py-1 bg-primary text-white rounded-md hover:opacity-90 transition"
+              >
+                <FaGithub />
+                {t("repo")}
+              </Link>
+            ) : (
+              <span className="">{t("no_repo_available")}</span>
+            )}
+
+            {projectData?.links?.live ? (
+              <Link
+                href={`${projectData.links.live}`}
+                target="_blank"
+                className="flex items-center gap-2 px-4 py-1 cust-trans border border-primary text-primary rounded-md hover:bg-primary hover:text-white"
+              >
+                <FaExternalLinkAlt />
+                {t("live")}
+              </Link>
+            ) : (
+              <span className="">{t("no_live_available")}</span>
+            )}
           </div>
+
         </motion.div>
       </div>
     </motion.div>

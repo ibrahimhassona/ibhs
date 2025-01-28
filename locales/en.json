@@ -14,11 +14,12 @@
     "steps_work": "Working principles",
     "full": "Fully",
     "shared": "With a coworker",
-    "cv_download":"Download",
+    "cv_download": "Download",
     "404": "404",
     "pageNotFound": "Page Not Found",
     "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
-    "returnToHome": "Return to Home"
+    "returnToHome": "Return to Home",
+    "latest":"Latest"
   },
   "MobileNav": {
     "home": "Home",
@@ -58,6 +59,8 @@
     "technologies": "Technologies",
     "back": "back",
     "repo": "Repository",
-    "live": "Live"
+    "live": "Live",
+    "no_repo_available": "No repository link available",
+    "no_live_available": "No live demo link available"
   }
 }
