@@ -102,7 +102,7 @@ function ProjectDetails({ projectSlug }) {
 
           {/* Project Links */}
           {/* Project Links */}
-          <div className="flex flex-col gap-2">
+          <div className={`flex ${projectData?.links?.repo && projectData?.links?.live ?  ` items-center gap-2`: 'flex-col'}`}>
             {projectData?.links?.repo ? (
               <Link
                 href={`${projectData.links.repo}`}

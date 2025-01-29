@@ -19,7 +19,7 @@
     "pageNotFound": "Page Not Found",
     "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
     "returnToHome": "Return to Home",
-    "latest":"Latest"
+    "latest": "Latest"
   },
   "MobileNav": {
     "home": "Home",
@@ -60,7 +60,8 @@
     "back": "back",
     "repo": "Repository",
     "live": "Live",
-    "no_repo_available": "No repository link available",
-    "no_live_available": "No live demo link available"
+    "no_repo_available": "No repository link available 'Policies'",
+    "no_live_available": "No live demo link available",
+    "my_mission": "My Mission"
   }
 }
