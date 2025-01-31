@@ -62,6 +62,9 @@
     "live": "Live",
     "no_repo_available": "No repository link available 'Policies'",
     "no_live_available": "No live demo link available",
-    "my_mission": "My Mission"
+    "my_mission": "My Mission",
+    "shared": "With a coworker",
+    "full": "Fully"
+    
   }
 }

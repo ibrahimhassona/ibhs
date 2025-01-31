@@ -66,27 +66,44 @@ function ProjectDetails({ projectSlug }) {
           transition={{ delay: 0.3, type: "spring" }}
           className="space-y-6"
         >
-          <h1 className="text-3xl font-bold text-primary mb-4">
-            {projectData?.title}
-          </h1>
+          <div className="flex justify-between max-w-[600px] items-center max-sm:flex-col">
+            <h1 className="text-3xl font-bold text-primary mb-4">
+              {projectData?.title}
+            </h1>
+            <span className=" font-semibold text-primary border-b-2 border-primary py-1">
+              {projectData?.status == "Full" ? t("full") : t("shared")}
+            </span>
+          </div>
 
           {/* Technologies */}
-          <div className="flex flex-wrap gap-2 items-center">
+          <div className="flex flex-col gap-2 items-start max-sm:items-center">
             <span className="font-semibold">{t("technologies")}:</span>
-            {projectData.technologies?.map((tech) => (
-              <span
-                key={tech}
-                className={`
-                  py-1 px-2 text-sm rounded-md
-                  ${!isDarkMode
-                    ? "bg-gray-800 text-gray-200"
-                    : "bg-gray-200 text-gray-800"
+            <div
+              className={`${`
+                 ${
+                   !isDarkMode
+                     ? "bg-gray-800/60 text-gray-200"
+                     : "bg-gray-100 text-gray-800"
+                 }
+                `} grid xl:grid-cols-5 lg:grid-cols-4 grid-cols-3 gap-2 p-4 rounded-md shadow max-sm:grid-cols-2 max-w-[700px] max-lg:m-auto`}
+            >
+              {projectData.technologies?.map((tech) => (
+                <span
+                  key={tech}
+                  className={`
+                  text-center
+                  py-1 px-2 text-sm rounded-md capitalize
+                  ${
+                    !isDarkMode
+                      ? "bg-gray-800 text-gray-200"
+                      : "bg-gray-200 text-gray-800"
                   }
                 `}
-              >
-                #{tech}
-              </span>
-            ))}
+                >
+                  #{tech}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Publication Date */}
@@ -102,7 +119,13 @@ function ProjectDetails({ projectSlug }) {
 
           {/* Project Links */}
           {/* Project Links */}
-          <div className={`flex ${projectData?.links?.repo && projectData?.links?.live ?  ` items-center gap-2`: 'flex-col'}`}>
+          <div
+            className={`flex ${
+              projectData?.links?.repo && projectData?.links?.live
+                ? ` items-center gap-2`
+                : "flex-col"
+            }`}
+          >
             {projectData?.links?.repo ? (
               <Link
                 href={`${projectData.links.repo}`}
@@ -129,7 +152,6 @@ function ProjectDetails({ projectSlug }) {
               <span className="">{t("no_live_available")}</span>
             )}
           </div>
-
         </motion.div>
       </div>
     </motion.div>

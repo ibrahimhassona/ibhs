@@ -8,7 +8,6 @@ import Image from "next/image";
 import { getProjects } from "@/lib/getProjects";
 import Loader from "./2025/ui/Loader";
 
-
 const ProjectsSection = () => {
   const t = useTranslations("Sidebar");
   const [projects, setProjects] = useState<any[] | null>([]);
@@ -24,7 +23,7 @@ const ProjectsSection = () => {
         console.error("Error fetching projects:", error);
       }
     };
-    
+
     fetchProjectsData();
   }, [locale]);
 
@@ -55,8 +54,8 @@ const ProjectsSection = () => {
   if (!projects) return <Loader />;
 
   // Separate featured and regular projects
-  const featuredProjects = projects.filter(project => project?.isFeature);
-  const regularProjects = projects.filter(project => !project?.isFeature);
+  const featuredProjects = projects.filter((project) => project?.isFeature);
+  const regularProjects = projects.filter((project) => !project?.isFeature);
 
   const renderProjects = (projectList: any[]) => (
     <motion.div
@@ -66,11 +65,7 @@ const ProjectsSection = () => {
       className="grid gap-6 max-sm:gap-4 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 my-10"
     >
       {projectList?.map((project: any) => (
-        <motion.div
-          key={project?.id}
-          variants={itemVariants}
-          className="group"
-        >
+        <motion.div key={project?.id} variants={itemVariants} className="group">
           <div
             className={`shadow-lg rounded-sm overflow-hidden cust-trans hover:shadow-xl border h-full flex flex-col ${
               !isDarkMode ? "border-slate-700" : "border-gray-300"
@@ -90,21 +85,18 @@ const ProjectsSection = () => {
                 />
               </div>
               <span
-                  className={` absolute end-0 top-1 px-2 py-1 text-xs rounded-s-sm  ${
-                    !isDarkMode
-                      ? "bg-gray-800/90 border-gray-700"
-                      : "bg-white/90 border-gray-100"
-                  }`}
-                >
-                  {project?.status == "Full" ? t("full") : t("shared")}
-                </span>
+                className={`absolute end-0 top-1 px-2 py-1 text-xs rounded-s-sm 
+                 bg-yellow-600 text-gray-900 font-semibold border-gray-700
+                `}
+              >
+                {project?.status === "Full" ? t("full") : t("shared")}
+              </span>
             </Link>
             <div className="p-4 flex flex-col gap-2 mt-auto">
               <div className="flex justify-between items-center max-md:flex-col gap-1">
                 <h2 className="font-semibold line-clamp-1 text-sm">
                   {project?.title.slice(0, 30)}
                 </h2>
-              
               </div>
             </div>
           </div>
