@@ -152,11 +152,11 @@ function ProjectDetails({ projectSlug }) {
         </motion.div>
       </div>
       {/* ------------ Video ---------- */}
-      {!projectData.video && <div className="my-8">
-        <h2 className=" font-semibold my-4 text-primary border-b-2 border-primary py-1 w-fit">
+      {projectData?.video && <div className="my-8">
+        <h2 className=" font-semibold my-4 text-primary border-b-2 border-primary max-sm:m-auto py-1 w-fit">
           فيديو
         </h2>
-        <TubeVideoRender data='https://www.youtube.com/watch?v=a2tCg_ByfWA&t=1s&ab_channel=Hypnotek'/>
+        <TubeVideoRender data={projectData?.video}/>
       </div>}
     </motion.div>
   );

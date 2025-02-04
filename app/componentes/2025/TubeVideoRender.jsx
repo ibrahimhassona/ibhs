@@ -30,7 +30,7 @@ const TubeVideoRender = ({ data }) => {
   }
 
   return (
-    <div className="youtube-embed grid border max-sm:grid-cols-1 max-sm:w-full my-4 transition-all duration-300 animate-fade-up">
+    <div className=" border-[3px] border-primary rounded-md w-[50%] max-lg:w-full my-4 cust-trans animate-fade-up">
       <div className="rounded-md overflow-hidden shadow-lg">
         <iframe
           width="100%"
