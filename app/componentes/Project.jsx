@@ -8,7 +8,7 @@ import { getProjects } from "@/lib/getProjects";
 import { useLocale, useTranslations } from "next-intl";
 import { useDarkMode } from "@/lib/DarkModeContext";
 import Loader from "./2025/ui/Loader";
-
+import TubeVideoRender from '@/app/componentes/2025/TubeVideoRender'
 function ProjectDetails({ projectSlug }) {
   const { isDarkMode } = useDarkMode();
   const [projectData, setProjectData] = useState(null);
@@ -80,11 +80,10 @@ function ProjectDetails({ projectSlug }) {
             <span className="font-semibold">{t("technologies")}:</span>
             <div
               className={`${`
-                 ${
-                   !isDarkMode
-                     ? "bg-gray-800/60 text-gray-200"
-                     : "bg-gray-100 text-gray-800"
-                 }
+                 ${!isDarkMode
+                  ? "bg-gray-800/60 text-gray-200"
+                  : "bg-gray-100 text-gray-800"
+                }
                 `} grid xl:grid-cols-5 lg:grid-cols-4 grid-cols-3 gap-2 p-4 rounded-md shadow max-sm:grid-cols-2 max-w-[700px] max-lg:m-auto`}
             >
               {projectData.technologies?.map((tech) => (
@@ -93,11 +92,10 @@ function ProjectDetails({ projectSlug }) {
                   className={`
                   text-center
                   py-1 px-2 text-sm rounded-md capitalize
-                  ${
-                    !isDarkMode
+                  ${!isDarkMode
                       ? "bg-gray-800 text-gray-200"
                       : "bg-gray-200 text-gray-800"
-                  }
+                    }
                 `}
                 >
                   #{tech}
@@ -120,11 +118,10 @@ function ProjectDetails({ projectSlug }) {
           {/* Project Links */}
           {/* Project Links */}
           <div
-            className={`flex ${
-              projectData?.links?.repo && projectData?.links?.live
-                ? ` items-center gap-2`
-                : "flex-col"
-            }`}
+            className={`flex ${projectData?.links?.repo && projectData?.links?.live
+              ? ` items-center gap-2`
+              : "flex-col"
+              }`}
           >
             {projectData?.links?.repo ? (
               <Link
@@ -154,6 +151,13 @@ function ProjectDetails({ projectSlug }) {
           </div>
         </motion.div>
       </div>
+      {/* ------------ Video ---------- */}
+      {!projectData.video && <div className="my-8">
+        <h2 className=" font-semibold my-4 text-primary border-b-2 border-primary py-1 w-fit">
+          فيديو
+        </h2>
+        <TubeVideoRender data='https://www.youtube.com/watch?v=a2tCg_ByfWA&t=1s&ab_channel=Hypnotek'/>
+      </div>}
     </motion.div>
   );
 }
