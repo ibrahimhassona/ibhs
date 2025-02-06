@@ -10,6 +10,8 @@ import {
   FaEnvelope,
   FaPhone,
   FaDownload,
+  FaYoutube,
+  FaTiktok
 } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 const Informations = ({ data }) => {
@@ -85,6 +87,14 @@ const Informations = ({ data }) => {
         return {
           icon: FaWhatsapp,
         };
+      case "Youtube":
+        return {
+          icon: FaYoutube,
+        };
+      case "Tiktok":
+        return {
+          icon: FaTiktok,
+        };
       case "GitHub":
         return { icon: FaGithub };
       default:
@@ -152,7 +162,7 @@ const Informations = ({ data }) => {
             <motion.a
               key={index}
               href={social.url}
-              className={`text-2xl transition-colors duration-300 `}
+              className={`text-2xl transition-colors duration-300 hover:text-primary`}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7 + index * 0.1 }}
