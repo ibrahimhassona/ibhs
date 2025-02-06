@@ -9,6 +9,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { useDarkMode } from "@/lib/DarkModeContext";
 import Loader from "./2025/ui/Loader";
 import TubeVideoRender from '@/app/componentes/2025/TubeVideoRender'
+import { TbLabel } from "react-icons/tb"
+import { MdLabelOutline } from "react-icons/md";
+
 function ProjectDetails({ projectSlug }) {
   const { isDarkMode } = useDarkMode();
   const [projectData, setProjectData] = useState(null);
@@ -90,7 +93,7 @@ function ProjectDetails({ projectSlug }) {
                 <span
                   key={tech}
                   className={`
-                  text-center
+                  text-center flex items-center gap-1
                   py-1 px-2 text-sm rounded-md capitalize
                   ${!isDarkMode
                       ? "bg-gray-800 text-gray-200"
@@ -98,7 +101,8 @@ function ProjectDetails({ projectSlug }) {
                     }
                 `}
                 >
-                  #{tech}
+               <MdLabelOutline className={`text-primary ${locale=='ar'?'rotate-180':''}`} size={15}/>
+                  {tech}
                 </span>
               ))}
             </div>
