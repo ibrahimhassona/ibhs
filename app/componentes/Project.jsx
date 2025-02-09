@@ -158,7 +158,7 @@ function ProjectDetails({ projectSlug }) {
       {/* ------------ Video ---------- */}
       {projectData?.video && <div className="my-8">
         <h2 className=" font-semibold my-4 text-primary border-b-2 border-primary max-sm:m-auto py-1 w-fit">
-          فيديو
+          {t("video")}
         </h2>
         <TubeVideoRender data={projectData?.video}/>
       </div>}
