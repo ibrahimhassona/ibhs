@@ -75,7 +75,7 @@ const Skills = () => {
               className={`rounded-sm cust-trans hover:shadow-md py-3 cursor-pointer flex flex-col justify-center items-center gap-2  
               `}
             >
-             <Image src={item.img} height={90} width={90} quality={100} alt={item.title} className="h-[70px] w-[70px] max-md:w-[50px] max-md:h-[50px] overflow-hidden rounded-full" priority={true} />
+             <Image src={item.img} height={90} width={90} quality={100} alt={item.title} className="border-[2px] border-light_primary h-[70px] w-[70px] max-md:w-[50px] max-md:h-[50px] overflow-hidden rounded-full" priority={true} />
               <h2 className="text-sm font-semibold">{item.title}</h2>
             </motion.div>
           ))}
