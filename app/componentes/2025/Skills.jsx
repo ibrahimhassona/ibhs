@@ -64,7 +64,7 @@ const Skills = () => {
       {/* Technical Skills */}
       <div className="pt-10">
         <h1 className="sectionHead uppercase">{t("technical_skills")}</h1>
-        <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3 max-sm:grid-cols-2 gap-2 my-10">
+        <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3 max-sm:grid-cols-3 gap-2 my-10">
           {skills.dataTech.map((item, index) => (
             <motion.div
               key={index}
