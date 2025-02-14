@@ -7,6 +7,7 @@ import { useDarkMode } from "@/lib/DarkModeContext";
 import Loader from "@/app/componentes/2025/ui/Loader";
 import { getData } from "@/lib/getData";
 import { MdDeveloperMode } from "react-icons/md";
+import Image from "next/image";
 
 const Skills = () => {
   const locale = useLocale();
@@ -71,14 +72,11 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true, amount: 0.4 }}
-              className={`rounded-sm cust-trans hover:shadow-md py-3 cursor-pointer flex flex-col justify-center items-center gap-2 border ${
-                !isDarkMode ? "border-slate-700" : "border-gray-300"
-              }`}
+              className={`rounded-sm cust-trans hover:shadow-md py-3 cursor-pointer flex flex-col justify-center items-center gap-2  
+              `}
             >
-              <h1 className="text-2xl text-primary">
-                <MdDeveloperMode size={22} />
-              </h1>
-              <h2 className="text-sm font-semibold">{item}</h2>
+             <Image src={item.img} height={90} width={90} quality={100} alt={item.title} className="h-[70px] w-[70px] max-md:w-[50px] max-md:h-[50px] overflow-hidden rounded-full" priority={true} />
+              <h2 className="text-sm font-semibold">{item.title}</h2>
             </motion.div>
           ))}
         </div>
