@@ -6,4 +6,4 @@ Allow: /
 Host: https://hassouna.vercel.app
 
 # Sitemaps
-Sitemap: https://hassouna.vercel.app/sitemap.xml
+Sitemap: https://hassouna.vercel.app/api/sitemap
