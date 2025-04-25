@@ -9,8 +9,8 @@ const ModeSwitcher = ({ style }) => {
 
   // Define colors for dark and light mode for easier customization
   const modeStyles = {
-    dark: "bg-slate-900 text-white ",
-    light: "bg-slate-900 text-black",
+    dark: "bg-[#171717] text-white ",
+    light: "bg-[#171717] text-black",
     iconDark: "text-white",
     iconLight: "text-yellow-400",
   };

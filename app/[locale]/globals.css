@@ -4,7 +4,7 @@
 
 :root {
   --background-light: #ffffff;
-  --background-dark: #121212;
+  --background-dark: #171717;
   --text-light: #000000;
   --text-dark: #ffffff;
 }
@@ -14,7 +14,7 @@
 }
 
 .dark {
-  @apply bg-slate-900 text-white
+  @apply bg-[#171717] text-white
 }
 
 .links {
@@ -31,6 +31,9 @@
 }
 .bg-blcak {
   @apply bg-black;
+}
+.custom-border{
+  @apply  dark:border-gray-100/20 border-gray-500/20
 }
 .cloud {
   background-image: url("/cloud.png");

@@ -55,8 +55,8 @@ const Skills = () => {
 
   if (!skills) return <Loader />;
   // General styles for item cards
-  const cardStyles = `flex hover:shadow-md cust-trans cursor-pointer flex-col items-center text-center px-2 py-[10px] rounded-sm h-full gap-1 justify-center border ${
-    !isDarkMode ? "border-slate-700" : "border-gray-300"
+  const cardStyles = `flex hover:shadow-md cust-trans cursor-pointer flex-col items-center text-center px-2 py-[10px] rounded-md h-full gap-1 justify-center border ${
+    !isDarkMode ? "border-gray-100/20" : "border-gray-500/20"
   }`;
 
   return (
@@ -95,7 +95,7 @@ const Skills = () => {
             variants={itemVariants}
             className={cardStyles}
           >
-            <h2 className="capitalize font-semibold text-primary">
+            <h2 className="capitalize font-semibold text-primary ">
               {skill.title}
             </h2>
             <p className="text-[14px]">{skill.desc}</p>

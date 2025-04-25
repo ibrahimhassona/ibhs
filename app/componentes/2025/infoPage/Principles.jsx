@@ -7,12 +7,12 @@ const Principles = ({ data, isDarkMode }) => {
 
   return (
     <motion.div
-      className="mb-8"
+      className="rounded-xl p-6 shadow-sm mb-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.9, duration: 0.6 }}
     >
-      <h2 className="text-2xl max-sm:text-lg font-bold mb-4 max-sm:text-center">
+      <h2 className="text-xl max-sm:text-lg font-bold mb-4 max-sm:text-center">
         {t("steps_work")}
       </h2>
       <div className="grid  max-sm:grid-cols-2 grid-cols-2 lg:grid-cols-3 gap-4">
@@ -26,8 +26,8 @@ const Principles = ({ data, isDarkMode }) => {
       ease-in-out
       ${
         !isDarkMode
-          ? "bg-gray-800/70 border-gray-700 "
-          : "bg-white/70 border-gray-100 "
+          ? "bg-[#2b2a2a] border-gray-100/20 "
+          : "bg-white/70 border-gray-500/20 "
       }
       border 
       hover:border-opacity-50

@@ -10,10 +10,10 @@ const DeskTopLinks = ({ data }) => {
   const currentPathSegment = pathName.split("/")[2]; // تقسيم المسار واستخراج الفهرس الثاني
   const active = !isDarkMode
     ? "text-slate-900 bg-gray-100"
-    : "bg-slate-900 text-gray-100";
+    : "bg-[#171717] text-gray-100";
     const hover = isDarkMode 
-    ? 'hover:bg-slate-900 hover:text-gray-100' 
-    : 'hover:text-slate-900 hover:bg-gray-100';
+    ? 'hover:bg-[#171717]/40 hover:text-gray-100' 
+    : 'hover:text-slate-900 hover:bg-gray-100/40';
   return (
     <div className="flex flex-col gap-2 ">
       {data.map((link, index) => {

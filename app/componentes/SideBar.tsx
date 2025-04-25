@@ -94,7 +94,7 @@ const SideBar = () => {
                 className="w-full h-[200px] object-fill rounded-lg"
                   priority
               />
-              <div className="w-20 h-20 absolute overflow-hidden -bottom-2 border-2 border-emerald-400 left-1/2 transform -translate-x-1/2 z-10 bg-slate-700 rounded-full flex items-center justify-center">
+              <div className="w-20 h-20 absolute overflow-hidden -bottom-2 border-2 border-emerald-400 left-1/2 transform -translate-x-1/2 z-10 bg-[#171717] rounded-full flex items-center justify-center">
                 <Image
                   width={400}
                   height={400}

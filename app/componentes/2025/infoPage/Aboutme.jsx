@@ -12,7 +12,7 @@ const Aboutme = ({data}) => {
     animate={{ y: 0, opacity: 1 }}
     transition={{ delay: 0.8, duration: 0.6 }}
   >
-    <h2 className="text-2xl max-sm:text-lg font-bold mb-4 max-sm:text-center">
+    <h2 className="text-xl max-sm:text-lg font-bold mb-4 max-sm:text-center">
       {t("aboutme")}
     </h2>
     <p className=" leading-relaxed max-sm:text-center">

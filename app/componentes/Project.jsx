@@ -9,7 +9,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { useDarkMode } from "@/lib/DarkModeContext";
 import Loader from "./2025/ui/Loader";
 import TubeVideoRender from '@/app/componentes/2025/TubeVideoRender'
-import { TbLabel } from "react-icons/tb"
 import { MdLabelOutline } from "react-icons/md";
 
 function ProjectDetails({ projectSlug }) {
@@ -70,7 +69,7 @@ function ProjectDetails({ projectSlug }) {
           className="space-y-6"
         >
           <div className="flex justify-between max-w-[600px] items-center max-sm:flex-col">
-            <h1 className="text-3xl font-bold text-primary mb-4">
+            <h1 className="text-2xl font-bold text-primary mb-4">
               {projectData?.title}
             </h1>
             <span className=" font-semibold text-primary border-b-2 border-primary py-1">
@@ -84,7 +83,7 @@ function ProjectDetails({ projectSlug }) {
             <div
               className={`${`
                  ${!isDarkMode
-                  ? "bg-gray-800/60 text-gray-200"
+                  ? "bg-[#1b1b1b] text-gray-200"
                   : "bg-gray-100 text-gray-800"
                 }
                 `} grid xl:grid-cols-5 lg:grid-cols-4 grid-cols-3 gap-2 p-4 rounded-md shadow max-sm:grid-cols-2 max-w-[700px] max-lg:m-auto`}
@@ -96,7 +95,7 @@ function ProjectDetails({ projectSlug }) {
                   text-center flex items-center gap-1
                   py-1 px-2 text-sm rounded-md capitalize
                   ${!isDarkMode
-                      ? "bg-gray-800 text-gray-200"
+                      ? "bg-[#2b2a2a] text-gray-200"
                       : "bg-gray-200 text-gray-800"
                     }
                 `}
@@ -115,14 +114,14 @@ function ProjectDetails({ projectSlug }) {
           </div>
 
           {/* Description */}
-          <p className="text-gray-600 leading-relaxed">
+          <p className={`${!isDarkMode ? "text-gray-400":"text-gray-700"}  leading-relaxed`}>
             {projectData?.description}
           </p>
 
           {/* Project Links */}
           {/* Project Links */}
           <div
-            className={`flex ${projectData?.links?.repo && projectData?.links?.live
+            className={`flex  ${projectData?.links?.repo || projectData?.links?.live
               ? ` items-center gap-2`
               : "flex-col"
               }`}
