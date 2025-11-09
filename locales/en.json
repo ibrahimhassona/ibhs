@@ -67,5 +67,13 @@
     "full": "Fully",
     "video":"Video"
     
+  },
+  "Companies": {
+    "title": "Experience",
+    "company": "Company",
+    "role": "Role",
+    "period": "Period",
+    "location": "Location",
+    "description": "Description"
   }
 }

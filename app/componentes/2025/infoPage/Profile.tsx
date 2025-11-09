@@ -9,6 +9,7 @@ import Cover from "./Cover";
 import Informations from "./Informations";
 import Aboutme from "./Aboutme";
 import Principles from "./Principles";
+import Companies from "./Companies";
 export default function Profile() {
   const locale = useLocale();
   const [data, setData] = useState<any[] | null>(null);
@@ -37,6 +38,8 @@ export default function Profile() {
         <Informations data={data?.[0]} />
         {/* ---------- About Me----------  */}
         <Aboutme data={data?.[0]} />
+        {/* ---------- About Me----------  */}
+        <Companies data={data?.[0]}/>
         {/* --------- Principles---------  */}
         <Principles data={data?.[0]} isDarkMode={isDarkMode} />
       </div>

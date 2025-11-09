@@ -79,7 +79,7 @@ const SideBar = () => {
       {data ? (
         <aside
           className={`flex flex-col gap-6 w-full h-screen max-md:hidden drop-shadow-xl p-2 ${
-            !isDarkMode ? "dark" : "light"
+            isDarkMode ? "dark" : "light"
           }`}
         >
           {/* Profile Section */}

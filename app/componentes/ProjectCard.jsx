@@ -25,21 +25,25 @@ const ProjectCard = ({ project, isDark, style }) => {
         />
 
         <div
-          className={`${
-            project.status === "Full" ? "text-primary" : "text-yellow-500"
-          } text-sm  border-[1px] custom-border text-nowrap absolute top-1 start-1 ${
-            !isDark ? "bg-[#171717]" : "dark"
-          } px-1 py-[2px] rounded-md`}
+          className={`absolute top-1 start-1 text-sm text-nowrap px-2 py-[3px] rounded-md border shadow-sm ${
+            isDark
+              ? "bg-[#171717]/90 border-white/20 text-gray-100"
+              : "bg-white/90 border-gray-300 text-slate-900"
+          }`}
         >
           {project.status === "Full" ? (
-            <div className="flex items-start gap-1">
-              <FaUserAlt size={14} />{" "}
-              <span className="text-[10px]"> {t("full")} </span>
+            <div className="flex items-center gap-1">
+              <FaUserAlt size={14} className="text-primary" />
+              <span className="text-[10px] font-semibold text-primary">
+                {t("full")}
+              </span>
             </div>
           ) : (
-            <div className="flex items-start gap-1">
-              <RiTeamFill size={16} />{" "}
-              <span className="text-[10px]"> {t("shared")} </span>
+            <div className="flex items-center gap-1">
+              <RiTeamFill size={16} className="text-yellow-500" />
+              <span className="text-[10px] font-semibold text-yellow-500">
+                {t("shared")}
+              </span>
             </div>
           )}
         </div>

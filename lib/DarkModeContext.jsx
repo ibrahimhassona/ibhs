@@ -32,11 +32,11 @@ const DarkModeProvider = ({ children }) => {
     if (typeof window !== "undefined") {
       const body = document.body;
       if (isDarkMode) {
-        body.classList.remove("dark");
-        body.classList.add("light");
-      } else {
         body.classList.add("dark");
         body.classList.remove("light");
+      } else {
+        body.classList.add("light");
+        body.classList.remove("dark");
       }
     }
   }, [isDarkMode]);

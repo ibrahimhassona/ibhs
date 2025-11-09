@@ -72,7 +72,7 @@ const ProjectsSection = () => {
 
   return (
     <section
-      className={`${isDarkMode ? "light" : "dark"} p-4 overflow-hidden`}
+      className={`${isDarkMode ? "dark" : "light"} p-4 overflow-hidden`}
       id="projects"
     >
       {featuredProjects?.length > 0 && (

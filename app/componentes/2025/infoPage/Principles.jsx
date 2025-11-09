@@ -25,7 +25,7 @@ const Principles = ({ data, isDarkMode }) => {
       cust-trans
       ease-in-out
       ${
-        !isDarkMode
+        isDarkMode
           ? "bg-[#2b2a2a] border-gray-100/20 "
           : "bg-white/70 border-gray-500/20 "
       }
@@ -64,7 +64,7 @@ const Principles = ({ data, isDarkMode }) => {
               <p
                 className={`
         text-sm sm:text-base flex-1
-        ${!isDarkMode ? "text-gray-200" : "text-gray-800"}
+        ${isDarkMode ? "text-gray-200" : "text-gray-800"}
       `}
               >
                 {principle}

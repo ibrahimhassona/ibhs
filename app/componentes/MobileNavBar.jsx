@@ -66,12 +66,12 @@ const MobileNavBar = () => {
   return (
     <nav
       className={`fixed -bottom-1 left-0 right-0 hidden max-md:block ${
-        !isDarkMode ? "dark" : "light"
+        isDarkMode ? "dark" : "light"
       }`}
     >
       <div
         className={`${
-          !isDarkMode ? "shadow-slate-700" : "shadow-gray-300"
+          isDarkMode ? "shadow-slate-700" : "shadow-gray-300"
         } shadow flex justify-around items-center h-16`}
       >
         {navItems.map((item) => (
@@ -112,7 +112,7 @@ const MobileNavBar = () => {
       {isMenuOpen && (
         <motion.div
           className={` absolute end-4 bottom-16  shadow-[0px_-4px_10px_rgba(0,0,0,0.1)] rounded-sm w-fit ${
-            isDarkMode ? "light" : "dark"
+            isDarkMode ? "dark" : "light"
           } p-4 shadow-lg `}
           variants={menuVariants}
           initial="hidden"
